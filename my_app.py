@@ -12,28 +12,21 @@ app = Dash(
 
 app.layout = html.Div(
     [
+        # Barra de navegación
         dbc.NavbarSimple(
-            brand="INCOM",
+            brand="ETS Dashboard",
             brand_href="#",
             color="dark",
             dark=True,
         ),
 
-        html.Br(),
-
         html.Div(
             [
+                # Indicadores
                 dbc.Row(
                     [
-                        dbc.Col(
-                            html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                ),
-                                className="bg-dark"
-                            ),
-                            width=6,
-                            class_name="bg-primary"
+                        html.Div(
+                            children=[html.H1(["Indicadores"])]
                         ),
                         dbc.Col(
                             html.Div(
@@ -41,11 +34,36 @@ app.layout = html.Div(
                                     dbc.CardBody("This is some text within a card body")
                                 )
                             ),
-                            width=6,
-                            class_name="bg-secondary"
+                            width=3
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card(
+                                    dbc.CardBody("This is some text within a card body")
+                                )
+                            ),
+                            width=3
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card(
+                                    dbc.CardBody("This is some text within a card body")
+                                )
+                            ),
+                            width=3
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card(
+                                    dbc.CardBody("This is some text within a card body")
+                                )
+                            ),
+                            width=3
                         )
                     ]
                 ),
+                html.Br(),
+                # Más indicadores
                 dbc.Row(
                     [
                         dbc.Col(
@@ -54,8 +72,7 @@ app.layout = html.Div(
                                     dbc.CardBody("This is some text within a card body")
                                 )
                             ),
-                            width=6,
-                            class_name="bg-success"
+                            width=3
                         ),
                         dbc.Col(
                             html.Div(
@@ -63,12 +80,28 @@ app.layout = html.Div(
                                     dbc.CardBody("This is some text within a card body")
                                 )
                             ),
-                            width=6,
-                            class_name="bg-danger"
+                            width=3
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card(
+                                    dbc.CardBody("This is some text within a card body")
+                                )
+                            ),
+                            width=3
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card(
+                                    dbc.CardBody("This is some text within a card body")
+                                )
+                            ),
+                            width=3
                         )
                     ]
                 )
-            ]
+            ],
+            className="px-4 pt-4"
         )
     ]
 )
