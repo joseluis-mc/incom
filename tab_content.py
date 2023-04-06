@@ -5,6 +5,7 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import pandas as pd
 from dash import Input, Output, html
+from viz import indicador
 
 sales_tab = html.Div(
             [
@@ -16,33 +17,45 @@ sales_tab = html.Div(
                         ),
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
+                                dbc.Card([
+                                    dbc.CardHeader(['Hola']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure = indicador)
+                                    ])
+                                ])
                             ),
                             width=3
                         ),
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
+                                dbc.Card([
+                                    dbc.CardHeader(['Hola']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure = indicador)
+                                    ])
+                                ])
                             ),
                             width=3
                         ),
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
+                                dbc.Card([
+                                    dbc.CardHeader(['Hola']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure = indicador)
+                                    ])
+                                ])
                             ),
                             width=3
                         ),
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
+                                dbc.Card([
+                                    dbc.CardHeader(['Hola']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure = indicador)
+                                    ])
+                                ])
                             ),
                             width=3
                         )
@@ -56,9 +69,12 @@ sales_tab = html.Div(
                     [
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
+                                dbc.Card([
+                                    dbc.CardHeader(['Hola']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure = indicador)
+                                    ])
+                                ])
                             ),
                             width=3
                         )
