@@ -10,11 +10,11 @@ import plotly.graph_objects as go
 indicador = go.Figure(go.Indicator(
     mode = "number+delta",
     value = 400,
-    number = {"font":{"size":35}},
-    delta = {'position': "top", 'reference': 320},
+    number = {"font":{"size":50}},
+    delta = {'position': "bottom", 'reference': 320},
     domain = {'x': [0, 1], 'y': [0, 1]}))
 
 indicador.update_layout(
-    paper_bgcolor="lightgray",
+    paper_bgcolor="white",
     height=150
 )
