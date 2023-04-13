@@ -6,6 +6,7 @@ import plotly.express as px
 import pandas as pd
 from dash import Input, Output, html
 from tab_content import sales_tab, engagement_tab, tab_3
+from tab_content import fig_time_paid, fig_time_direct, fig_time_organic
 
 app = Dash(
     __name__,
@@ -16,7 +17,7 @@ app.layout = html.Div(
     [
         # Barra de navegación
         dbc.NavbarSimple(
-            brand="ETS Dashboard",
+            brand="ETS-INCOM Dashboard",
             brand_href="#",
             color="dark",
             dark=True,
@@ -51,6 +52,17 @@ def tab_content(active_tab):
         return engagement_tab
     elif active_tab == 'tab-3':
         return tab_3
+
+#@app.callback(
+#    Output('series_de_tiempo', 'figure'), [Input('dropdown', 'value')]
+#)
+#def time_series(value):
+#    if value == 'fig_time_direct':
+#        return fig_time_direct
+#    if value == 'fig_time_organic':
+#        return fig_time_direct
+#    if value == 'fig_time_paid':
+#        return fig_time_direct
 
 if __name__ == '__main__':
     app.run_server(debug=True)
