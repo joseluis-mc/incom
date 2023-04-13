@@ -29,8 +29,7 @@ app.layout = html.Div(
                     dbc.Tabs(
                         [
                             dbc.Tab(label = 'Sales', tab_id = 'tab-1'),
-                            dbc.Tab(label = 'Engagement', tab_id = 'tab-2'),
-                            dbc.Tab(label = 'Tab 3', tab_id = 'tab-3')
+                            dbc.Tab(label = 'Engagement', tab_id = 'tab-2', disabled=True),
                         ],
                         id = 'card-tabs',
                         active_tab = 'tab-1'

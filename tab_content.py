@@ -95,7 +95,7 @@ sales_tab = html.Div(
                 html.Br(),
 
                 # Serie de tiempo
-                dbc.Label("Dropdown", html_for="dropdown"),
+                dbc.Label("Tipo de Sesiones", html_for="dropdown"),
                 dcc.Dropdown(
                     id="dropdown",
                     options=[

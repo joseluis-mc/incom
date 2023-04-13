@@ -16,7 +16,7 @@ def make_indicator(data, data_delta, var, title, subset):
     fig = go.Figure(data = trace)
     
     # Dimensiones
-    fig.update_layout(width = 400,height = 200)
+    fig.update_layout(width = 400,height = 150)
 
 #     # Estética
     fig.update_layout(plot_bgcolor='white',
@@ -26,7 +26,7 @@ def make_indicator(data, data_delta, var, title, subset):
     # Fonts
     fig.update_traces(title_font_size = 25,
                       title_font_family = 'Open Sans',
-                      number_font_size = 75,
+                      number_font_size = 50,
                       number_font_family = 'Open Sans',
                       delta_font_size = 25,
                       delta_font_family = 'Open Sans',)
@@ -129,13 +129,13 @@ def make_tree_paid_sources(data, title):
     return fig
 
 # Import data
-data_indicators = pd.read_pickle('/Users/joseluis/Code/INCOM/datasets/data_indicators.pkl')
-data_time_direct = pd.read_pickle('/Users/joseluis/Code/INCOM/datasets/data_time_direct.pkl')
-data_time_organic = pd.read_pickle('/Users/joseluis/Code/INCOM/datasets/data_time_organic.pkl')
-data_time_paid = pd.read_pickle('/Users/joseluis/Code/INCOM/datasets/data_time_paid.pkl')
-data_search_engines = pd.read_pickle('/Users/joseluis/Code/INCOM/datasets/data_search_engines.pkl')
-data_social_networks = pd.read_pickle('/Users/joseluis/Code/INCOM/datasets/data_social_networks.pkl')
-data_paid_sources = pd.read_pickle('/Users/joseluis/Code/INCOM/datasets/data_paid_sources.pkl')
+data_indicators = pd.read_pickle('/datasets/data_indicators.pkl')
+data_time_direct = pd.read_pickle('/datasets/data_time_direct.pkl')
+data_time_organic = pd.read_pickle('/datasets/data_time_organic.pkl')
+data_time_paid = pd.read_pickle('/datasets/data_time_paid.pkl')
+data_search_engines = pd.read_pickle('/datasets/data_search_engines.pkl')
+data_social_networks = pd.read_pickle('/datasets/data_social_networks.pkl')
+data_paid_sources = pd.read_pickle('/datasets/data_paid_sources.pkl')
 
 # KPIs
 # Hard coded lists of mediums
