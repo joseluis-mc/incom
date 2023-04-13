@@ -20,7 +20,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sesiones - Directas']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_indicator_1)
+                                        dcc.Graph(figure = fig_indicator_1, style={'width': '100%', 'height': '150px'})
                                     ])
                                 ])
                             ),
@@ -31,7 +31,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Transacciones - Directas']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_indicator_2)
+                                        dcc.Graph(figure = fig_indicator_2, style={'width': '100%', 'height': '150px'})
                                     ])
                                 ])
                             ),
@@ -42,7 +42,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sesiones - Adquiridas']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_indicator_3)
+                                        dcc.Graph(figure = fig_indicator_3, style={'width': '100%', 'height': '150px'})
                                     ])
                                 ])
                             ),
@@ -61,7 +61,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Transacciones - Adquiridas']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_indicator_4)
+                                        dcc.Graph(figure = fig_indicator_4, style={'width': '100%', 'height': '150px'})
                                     ])
                                 ])
                             ),
@@ -72,7 +72,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sesiones - Orgánicas']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_indicator_5)
+                                        dcc.Graph(figure = fig_indicator_5, style={'width': '100%', 'height': '150px'})
                                     ])
                                 ])
                             ),
@@ -83,7 +83,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Transacciones - Orgánicas']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_indicator_6)
+                                        dcc.Graph(figure = fig_indicator_6, style={'width': '100%', 'height': '150px'})
                                     ])
                                 ])
                             ),
@@ -94,19 +94,6 @@ sales_tab = html.Div(
 
                 html.Br(),
 
-                # Serie de tiempo
-                dbc.Label("Tipo de Sesiones", html_for="dropdown"),
-                dcc.Dropdown(
-                    id="dropdown",
-                    options=[
-                        {"label": "Directas", "value": 'fig_time_direct'},
-                        {"label": "Orgánicas", "value": 'fig_time_organic'},
-                        {"label": "Pagadas", "value": 'fig_time_paid'},
-                    ],
-                ),
-                
-                html.Br(),
-
                 dbc.Row(
                     [
                         dbc.Col(
@@ -114,7 +101,25 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Series de Tiempo']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_time_direct)
+                                        html.Div([
+                                            dbc.Label("Tipo de Sesiones", html_for="dropdown"),
+                                            dcc.Dropdown(
+                                                id="dropdown",
+                                                options=[
+                                                    {"label": "Directas", "value": 'fig_time_direct'},
+                                                    {"label": "Orgánicas", "value": 'fig_time_organic'},
+                                                    {"label": "Pagadas", "value": 'fig_time_paid'},
+                                                ],
+                                                value = 'fig_time_direct',
+                                                clearable = False,
+                                                searchable = False,
+                                            ),
+                                        ],
+                                        style = {
+                                            'width': '25%'
+                                        }),
+                                        html.Br(),
+                                        dcc.Graph(figure=fig_time_direct, style={'width': '100%', 'height': '500px'})
                                     ])
                                 ])
                             )
@@ -132,7 +137,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sesiones Orgánicas por Buscador']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_search_engines)
+                                        dcc.Graph(figure = fig_search_engines, style={'width': '100%', 'height': '450px'})
                                     ])
                                 ])
                             ), width = 6
@@ -142,7 +147,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sesiones Adquiridas por Red Social']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_social_networks)
+                                        dcc.Graph(figure = fig_social_networks, style={'width': '100%', 'height': '450px'})
                                     ])
                                 ])
                             ), width = 6
@@ -159,7 +164,7 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Paid Sources']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure = fig_paid_sources)
+                                        dcc.Graph(figure = fig_paid_sources, style={'width': '100%', 'height': '500px'})
                                     ])
                                 ])
                             ), width = 12

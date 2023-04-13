@@ -16,7 +16,7 @@ def make_indicator(data, data_delta, var, title, subset):
     fig = go.Figure(data = trace)
     
     # Dimensiones
-    fig.update_layout(width = 400,height = 150)
+    #fig.update_layout(width = 400,height = 150)
 
 #     # Estética
     fig.update_layout(plot_bgcolor='white',
@@ -27,7 +27,8 @@ def make_indicator(data, data_delta, var, title, subset):
     fig.update_traces(title_font_size = 25,
                       title_font_family = 'Open Sans',
                       number_font_size = 50,
-                      number_font_family = 'Open Sans',
+                      #number_font_family = 'Open Sans',
+                      number_font_color = 'black',
                       delta_font_size = 25,
                       delta_font_family = 'Open Sans',)
     
@@ -49,16 +50,17 @@ def make_double_timeseries(data, var, title):
     fig.update_yaxes(title_text='Transactions', row=2, col=1)
 
     # Update the layout of the figure to improve the overall appearance
-    fig.update_layout(width = 1300, height = 500, title_text='Two Time Series with Separate Y-Axes')
+    #fig.update_layout(width = 1300, height = 500, title_text='Two Time Series with Separate Y-Axes')
     
     
     fig.update_layout(title = title,
                   title_x = .5,
                   yaxis_title =var,
-                  plot_bgcolor='#F9F9F9',
-                  paper_bgcolor='#F9F9F9',
+                  #plot_bgcolor='#F9F9F9',
+                  #paper_bgcolor='#F9F9F9',
                   showlegend = False,
-                  hovermode = 'x unified')
+                  hovermode = 'x unified',
+                  template = 'simple_white')
     return fig
 
 def make_hbar_search_engines(data, var, title):
@@ -71,7 +73,7 @@ def make_hbar_search_engines(data, var, title):
 
     
     # Dimensiones
-    fig.update_layout(width = 620, height = 450)
+    #fig.update_layout(width = 620, height = 450)
     
     # Colores de línea y marcadores
     
@@ -80,9 +82,11 @@ def make_hbar_search_engines(data, var, title):
                       #title_x = .5,
                       xaxis_title = 'Sesiones',
                       yaxis_title = 'Buscador',
-                      plot_bgcolor='#F9F9F9',
-                      paper_bgcolor='#F9F9F9',
-                      showlegend = False)
+                      #plot_bgcolor='#F9F9F9',
+                      #paper_bgcolor='#F9F9F9',
+                      showlegend = False,
+                      template = 'simple_white',
+                      margin = dict(t=0, l=0, r=0, b=0))
     return fig
 
 def make_hbar_social_network(data, var, title):
@@ -95,7 +99,7 @@ def make_hbar_social_network(data, var, title):
 
     
     # Dimensiones
-    fig.update_layout(width = 620, height = 450)
+    #fig.update_layout(width = 620, height = 450)
     
     # Colores de línea y marcadores
     
@@ -104,9 +108,11 @@ def make_hbar_social_network(data, var, title):
                       #title_x = .5,
                       xaxis_title = 'Sesiones',
                       yaxis_title = 'Red Social',
-                      plot_bgcolor='#F9F9F9',
-                      paper_bgcolor='#F9F9F9',
-                      showlegend = False)
+                      #plot_bgcolor='#F9F9F9',
+                      #paper_bgcolor='#F9F9F9',
+                      showlegend = False,
+                      template = 'simple_white',
+                      margin = dict(t=0, l=0, r=0, b=0))
     return fig
 
 def make_tree_paid_sources(data, title):
@@ -118,11 +124,12 @@ def make_tree_paid_sources(data, title):
     
     fig.update_traces(root_color="lightgrey")
     fig.update_layout(title = title,
-                  width = 1300,
-                  height = 500,    
+                  #width = 1300,
+                  #height = 500,    
                   title_x = .5,
-                  plot_bgcolor='#F9F9F9',
-                  paper_bgcolor='#F9F9F9')
+                  #plot_bgcolor='#F9F9F9',
+                  #paper_bgcolor='#F9F9F9',
+                  template = 'simple_white')
     
     fig.update_layout(margin = dict(t=50, l=25, r=25, b=25))
     
