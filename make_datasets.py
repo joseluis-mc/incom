@@ -129,13 +129,13 @@ def make_tree_paid_sources(data, title):
     return fig
 
 # Import data
-data_indicators = pd.read_pickle('/datasets/data_indicators.pkl')
-data_time_direct = pd.read_pickle('/datasets/data_time_direct.pkl')
-data_time_organic = pd.read_pickle('/datasets/data_time_organic.pkl')
-data_time_paid = pd.read_pickle('/datasets/data_time_paid.pkl')
-data_search_engines = pd.read_pickle('/datasets/data_search_engines.pkl')
-data_social_networks = pd.read_pickle('/datasets/data_social_networks.pkl')
-data_paid_sources = pd.read_pickle('/datasets/data_paid_sources.pkl')
+data_indicators = pd.read_pickle('./datasets/data_indicators.pkl')
+data_time_direct = pd.read_pickle('./datasets/data_time_direct.pkl')
+data_time_organic = pd.read_pickle('./datasets/data_time_organic.pkl')
+data_time_paid = pd.read_pickle('./datasets/data_time_paid.pkl')
+data_search_engines = pd.read_pickle('./datasets/data_search_engines.pkl')
+data_social_networks = pd.read_pickle('./datasets/data_social_networks.pkl')
+data_paid_sources = pd.read_pickle('./datasets/data_paid_sources.pkl')
 
 # KPIs
 # Hard coded lists of mediums
