@@ -18,7 +18,10 @@ from make_datasets import fig_time_paid, fig_time_direct, fig_time_organic
 # Inicializamos la aplicación
 app = Dash(
     __name__,
-    external_stylesheets=[dbc.themes.BOOTSTRAP] # Integramos Bootstrap
+    external_stylesheets=[dbc.themes.BOOTSTRAP], # Integramos Bootstrap
+    meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+    ],
 )
 
 app.config.suppress_callback_exceptions=True
