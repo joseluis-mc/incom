@@ -6,12 +6,14 @@ import plotly.express as px
 import pandas as pd
 from dash import Input, Output, html
 from tab_content import sales_tab, engagement_tab, tab_3
-from tab_content import fig_time_paid, fig_time_direct, fig_time_organic
+from make_datasets import fig_time_paid, fig_time_direct, fig_time_organic
 
 app = Dash(
     __name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP]
 )
+
+app.config.suppress_callback_exceptions = True
 
 app.layout = html.Div(
     [
@@ -42,7 +44,8 @@ app.layout = html.Div(
 )
 
 @app.callback(
-    Output("card-content", "children"), [Input("card-tabs", "active_tab")]
+    Output("card-content", "children"),
+    [Input("card-tabs", "active_tab")]
 )
 def tab_content(active_tab):
     if active_tab == 'tab-1':
@@ -52,16 +55,16 @@ def tab_content(active_tab):
     elif active_tab == 'tab-3':
         return tab_3
 
-#@app.callback(
-#    Output('series_de_tiempo', 'figure'), [Input('dropdown', 'value')]
-#)
-#def time_series(value):
-#    if value == 'fig_time_direct':
-#        return fig_time_direct
-#    if value == 'fig_time_organic':
-#        return fig_time_direct
-#    if value == 'fig_time_paid':
-#        return fig_time_direct
+@app.callback(
+    Output('series_de_tiempo', 'figure'), [Input('my_dropdown', 'value')]
+)
+def time_series(value):
+    if value == 'fig_time_direct':
+        return fig_time_direct
+    if value == 'fig_time_organic':
+        return fig_time_organic
+    if value == 'fig_time_paid':
+        return fig_time_paid
 
 if __name__ == '__main__':
     app.run_server(debug=True)

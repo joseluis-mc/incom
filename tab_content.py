@@ -104,7 +104,7 @@ sales_tab = html.Div(
                                         html.Div([
                                             dbc.Label("Tipo de Sesiones", html_for="dropdown"),
                                             dcc.Dropdown(
-                                                id="dropdown",
+                                                id="my_dropdown",
                                                 options=[
                                                     {"label": "Directas", "value": 'fig_time_direct'},
                                                     {"label": "Orgánicas", "value": 'fig_time_organic'},
@@ -119,7 +119,9 @@ sales_tab = html.Div(
                                             'width': '25%'
                                         }),
                                         html.Br(),
-                                        dcc.Graph(figure=fig_time_direct, style={'width': '100%', 'height': '500px'})
+                                        dcc.Graph(id='series_de_tiempo',
+                                                  figure={},
+                                                  style={'width': '100%', 'height': '500px'})
                                     ])
                                 ])
                             )
