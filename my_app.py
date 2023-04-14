@@ -1,21 +1,30 @@
-from dash import Dash, dash_table
-import dash_core_components as dcc
-import dash_html_components as html
-import dash_bootstrap_components as dbc
-import plotly.express as px
-import pandas as pd
-from dash import Input, Output, html
-from tab_content import sales_tab, engagement_tab, tab_3
+# En este archivo vive la aplicación. Primero, importamos librerías.
+
+# Dash para configurar y diseñar la aplicación:
+from dash import Dash # Importamos Dash
+from dash import Input, Output, html # Módulos adicionales para callbacks
+import dash_html_components as html # Componentes básicos de HTML para layout
+import dash_bootstrap_components as dbc # Componentes de Bootstrap
+
+# Contenido de otros archivos
+from tab_content import sales_tab, engagement_tab # Contenido de las pestañas
+
+# Y algunas gráficas que integran un callback
 from make_datasets import fig_time_paid, fig_time_direct, fig_time_organic
 
+#------------------------------------------------------------------------------
+# APLICACIÓN
+
+# Inicializamos la aplicación
 app = Dash(
     __name__,
-    external_stylesheets=[dbc.themes.BOOTSTRAP]
+    external_stylesheets=[dbc.themes.BOOTSTRAP] # Integramos Bootstrap
 )
 
-app.config.suppress_callback_exceptions = True
+app.config.suppress_callback_exceptions=True
 
-app.layout = html.Div(
+# Configuramos el diseño de la aplicación
+app.layout=html.Div(
     [
         # Barra de navegación
         dbc.NavbarSimple(
@@ -25,46 +34,60 @@ app.layout = html.Div(
             dark=True,
         ),
 
+        # Tarjeta donde vive el contenido de la aplicación
         dbc.Card(
             [
+                # Header con pestañas
                 dbc.CardHeader(
                     dbc.Tabs(
                         [
-                            dbc.Tab(label = 'Sales', tab_id = 'tab-1'),
-                            dbc.Tab(label = 'Engagement', tab_id = 'tab-2', disabled=True),
+                            # Pestaña de ventas
+                            dbc.Tab(label='Sales',
+                                    tab_id='tab-1'),
+
+                            # Pestaña de "engagement"
+                            dbc.Tab(label='Engagement',
+                                    tab_id='tab-2',
+                                    disabled=True),
                         ],
-                        id = 'card-tabs',
-                        active_tab = 'tab-1'
+                        id='card-tabs',
+                        active_tab='tab-1'
                     )
                 ),
-                dbc.CardBody(id = 'card-content')
+                dbc.CardBody(id='card-content')
             ]
         )  
     ]
 )
 
+#------------------------------------------------------------------------------
+# CALLBACKS
+
+# Cambio de pestaña
 @app.callback(
     Output("card-content", "children"),
     [Input("card-tabs", "active_tab")]
 )
 def tab_content(active_tab):
-    if active_tab == 'tab-1':
+    if active_tab=='tab-1':
         return sales_tab
-    elif active_tab == 'tab-2':
+    elif active_tab=='tab-2':
         return engagement_tab
-    elif active_tab == 'tab-3':
-        return tab_3
 
+# Selección de figura en serie de tiempo
 @app.callback(
-    Output('series_de_tiempo', 'figure'), [Input('my_dropdown', 'value')]
+    Output('series_de_tiempo', 'figure'),
+    [Input('my_dropdown', 'value')]
 )
 def time_series(value):
-    if value == 'fig_time_direct':
+    if value=='fig_time_direct':
         return fig_time_direct
-    if value == 'fig_time_organic':
+    if value=='fig_time_organic':
         return fig_time_organic
-    if value == 'fig_time_paid':
+    if value=='fig_time_paid':
         return fig_time_paid
 
+#------------------------------------------------------------------------------
+# Corremos la aplicación
 if __name__ == '__main__':
     app.run_server(debug=True)
