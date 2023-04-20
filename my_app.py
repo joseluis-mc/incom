@@ -20,7 +20,8 @@ app = Dash(
     __name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP], # Integramos Bootstrap
     meta_tags=[
-        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+        {"name": "viewport",
+         "content": "width=device-width, initial-scale=1"},
     ],
 )
 
