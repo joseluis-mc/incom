@@ -1,0 +1,13 @@
+.section_title {
+    padding-left: 20px;
+}
+
+.card {
+    border-color: #EF7000;
+}
+
+.card-header {
+    background-color: #077F83;
+    color: white;
+    border: 0px;
+}

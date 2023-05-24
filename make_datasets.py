@@ -80,8 +80,8 @@ def make_hbar_search_engines(data, var, title):
     # Estilos
     fig.update_layout(#title = title,
                       #title_x = .5,
-                      xaxis_title = 'Sesiones',
-                      yaxis_title = 'Buscador',
+                      xaxis_title = 'Sessions',
+                      yaxis_title = 'Engine',
                       #plot_bgcolor='#F9F9F9',
                       #paper_bgcolor='#F9F9F9',
                       showlegend = False,
@@ -106,8 +106,8 @@ def make_hbar_social_network(data, var, title):
     # Estilos
     fig.update_layout(#title = title,
                       #title_x = .5,
-                      xaxis_title = 'Sesiones',
-                      yaxis_title = 'Red Social',
+                      xaxis_title = 'Sessions',
+                      yaxis_title = 'Social Network',
                       #plot_bgcolor='#F9F9F9',
                       #paper_bgcolor='#F9F9F9',
                       showlegend = False,
@@ -201,9 +201,9 @@ fig_indicator_6 = make_indicator(data_indicators,
                                  organic)
 
 # Time Series Explorer
-fig_time_direct = make_double_timeseries(data_time_direct, 'sessions', 'Desempeño 120 días directas')
-fig_time_organic = make_double_timeseries(data_time_organic, 'sessions', 'Desempeño 120 días orgánicas')
-fig_time_paid = make_double_timeseries(data_time_paid, 'sessions', 'Desempeño 120 días adquiridas')
+fig_time_direct = make_double_timeseries(data_time_direct, 'Sessions', '120 day performance: Direct Sessions')
+fig_time_organic = make_double_timeseries(data_time_organic, 'Sessions', '120 day performance: Organic Sessions')
+fig_time_paid = make_double_timeseries(data_time_paid, 'Sessions', '120 day performance: Paid Sessions')
 
 # Search Engines
 fig_search_engines = make_hbar_search_engines(data_search_engines, 'sessions', 'Sesiones orgánicas por buscador')

@@ -22,19 +22,21 @@ sales_tab = html.Div(
                     [
                         # Título de la sección
                         html.Div(
-                            children=[html.H3(["Indicadores"])]
+                            children=[html.H3(["Key Metrics"], style={'color': '#EF7000', 'font-style': 'italic'})]
                         ),
 
                         # Tres columnas
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Sesiones - Directas']),
+                                    dbc.CardHeader(
+                                        ['Direct Sessions']
+                                    ),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_1,
                                                   style={
                                                     'width': '100%',
-                                                    'height': '150px'
+                                                    'height': '150px',
                                                   })
                                     ])
                                 ])
@@ -44,9 +46,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Transacciones - Directas']),
+                                    dbc.CardHeader(['Paid Sessions']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_2,
+                                        dcc.Graph(figure=fig_indicator_3,
                                                   style={
                                                     'width': '100%',
                                                     'height': '150px'
@@ -59,9 +61,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Sesiones - Adquiridas']),
+                                    dbc.CardHeader(['Organic Sessions']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_3,
+                                        dcc.Graph(figure=fig_indicator_5,
                                                   style={
                                                     'width': '100%',
                                                     'height': '150px'
@@ -79,11 +81,27 @@ sales_tab = html.Div(
                 # Segunda fila de indicadores
                 dbc.Row(
                     [
+
                         # Tres columnas
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Transacciones - Adquiridas']),
+                                    dbc.CardHeader(['Direct Transactions']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_2,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '150px'
+                                                  })
+                                    ])
+                                ])
+                            ),
+                            width=4
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Paid Transactions']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_4,
                                                   style={
@@ -98,22 +116,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Sesiones - Orgánicas']),
-                                    dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_5,
-                                                  style={
-                                                    'width': '100%',
-                                                    'height': '150px'
-                                                  })
-                                    ])
-                                ])
-                            ),
-                            width=4
-                        ),
-                        dbc.Col(
-                            html.Div(
-                                dbc.Card([
-                                    dbc.CardHeader(['Transacciones - Orgánicas']),
+                                    dbc.CardHeader(['Organic Transactions']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_6,
                                                   style={
@@ -137,12 +140,17 @@ sales_tab = html.Div(
                 # Una fila y una columna
                 dbc.Row(
                     [
+                        # Título de la sección
+                        html.Div(
+                            children=[html.H3(["Visualizations"], style={'color': '#EF7000', 'font-style': 'italic'})]
+                        ),
+
                         dbc.Col(
                             
                             # Tarjeta donde viven las series de tiempo
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Series de Tiempo']),
+                                    dbc.CardHeader(['Sessions-Transactions Time Series']),
                                     dbc.CardBody([
                                         
                                         # Dropdown para seleccionar la serie
@@ -150,18 +158,18 @@ sales_tab = html.Div(
                                         html.Div([
                                             
                                             # Etiqueta
-                                            dbc.Label("Tipo de Sesiones",
+                                            dbc.Label("Session Type",
                                                       html_for="dropdown"),
                                             
                                             # Dropwdown
                                             dcc.Dropdown(
                                                 id="my_dropdown",
                                                 options=[
-                                                    {"label": "Directas",
+                                                    {"label": "Direct",
                                                      "value": 'fig_time_direct'},
-                                                    {"label": "Orgánicas",
+                                                    {"label": "Organic",
                                                      "value": 'fig_time_organic'},
-                                                    {"label": "Pagadas",
+                                                    {"label": "Paid",
                                                      "value": 'fig_time_paid'},
                                                 ],
                                                 value='fig_time_direct',
@@ -199,7 +207,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Sesiones Orgánicas por Buscador']),
+                                    dbc.CardHeader(['Organic Sessions by Search Engine']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_search_engines,
                                                   style={
@@ -215,7 +223,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Sesiones Adquiridas por Red Social']),
+                                    dbc.CardHeader(['Paid Sessions by Social Network']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_social_networks,
                                                   style={

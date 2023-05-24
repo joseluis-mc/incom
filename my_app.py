@@ -3,7 +3,7 @@
 # Dash para configurar y diseñar la aplicación:
 from dash import Dash # Importamos Dash
 from dash import Input, Output, html # Módulos adicionales para callbacks
-import dash_html_components as html # Componentes básicos de HTML para layout
+from dash import html # Componentes básicos de HTML para layout
 import dash_bootstrap_components as dbc # Componentes de Bootstrap
 
 # Contenido de otros archivos
@@ -30,13 +30,42 @@ app.config.suppress_callback_exceptions=True
 # Configuramos el diseño de la aplicación
 app.layout=html.Div(
     [
-        # Barra de navegación
-        dbc.NavbarSimple(
-            brand="ETS-INCOM Dashboard",
-            brand_href="#",
-            color="dark",
-            dark=True,
+        # Logo
+        html.Div(
+            [
+                html.Img(src = '/assets/ets_toefl_logo.jpeg', style = {'width': '100%'}),
+            ],
+            style = {
+                'width': '25%',
+                'margin-top': '20px',
+                'margin-left': '20px'
+            }
         ),
+
+        dbc.Row(
+            dbc.Col(
+                [
+                    html.Div(
+                        [
+                            html.H1(
+                                [
+                                    'Analytics Dashboard'
+                                ],
+                                style = {
+                                    'color': '#077F83',
+                                    'font-weight': 'bold',
+                                    'textAlign': 'center',
+                                    'font-style': 'italic'
+                                }
+                            )
+                        ]
+                    ),
+                ],
+            ),
+        ),
+
+        
+
 
         # Tarjeta donde vive el contenido de la aplicación
         dbc.Card(
@@ -47,19 +76,29 @@ app.layout=html.Div(
                         [
                             # Pestaña de ventas
                             dbc.Tab(label='Sales',
-                                    tab_id='tab-1'),
+                                    tab_id='tab-1',
+                                    label_style = {'borderColor': 'white'}
+                                ),
 
                             # Pestaña de "engagement"
                             dbc.Tab(label='Engagement',
                                     tab_id='tab-2',
-                                    disabled=True),
+                                    disabled=True,
+                                    label_style = {'borderColor': 'white'}
+                                ),
                         ],
                         id='card-tabs',
                         active_tab='tab-1'
-                    )
+                    ),
+                    style = {
+                        'backgroundColor': 'white'
+                    }
                 ),
                 dbc.CardBody(id='card-content')
-            ]
+            ],
+            style = {
+                'border': 0
+            }
         )  
     ]
 )
