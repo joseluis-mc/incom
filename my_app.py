@@ -26,6 +26,8 @@ app = Dash(
     ],
 )
 
+app.title = 'ETS Analytics Dashboard'
+
 app.config.suppress_callback_exceptions=True
 
 # Configuramos el diseño de la aplicación
@@ -37,7 +39,7 @@ app.layout=html.Div(
                 html.Img(src = '/assets/ets_toefl_logo.jpeg', style = {'width': '100%'}),
             ],
             style = {
-                'width': '25%',
+                'width': '20%',
                 'margin-top': '20px',
                 'margin-left': '20px'
             }
@@ -64,10 +66,7 @@ app.layout=html.Div(
                 ],
             ),
         ),
-
         
-
-
         # Tarjeta donde vive el contenido de la aplicación
         dbc.Card(
             [

@@ -261,7 +261,7 @@ sales_tab = html.Div(
                     ]
                 ),
             ],
-            className="px-4 pt-4"
+            className="px-4 pt-0"
     )
 
 engagement_tab = html.Div(
