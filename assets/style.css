@@ -10,10 +10,15 @@ body {
 
 .card {
     border-color: #EF7000;
+    font-family: 'Open Sans';
 }
 
 .card-header {
     background-color: #077F83;
     color: white;
     border: 0px;
+}
+
+.tab {
+    font-family: 'Open Sans';
 }
