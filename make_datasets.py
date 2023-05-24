@@ -27,7 +27,7 @@ def make_indicator(data, data_delta, var, title, subset):
     fig.update_traces(title_font_size = 25,
                       title_font_family = 'Open Sans',
                       number_font_size = 50,
-                      #number_font_family = 'Open Sans',
+                      number_font_family = 'Open Sans',
                       number_font_color = 'black',
                       delta_font_size = 25,
                       delta_font_family = 'Open Sans',)
