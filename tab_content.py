@@ -36,7 +36,7 @@ sales_tab = html.Div(
                                         dcc.Graph(figure=fig_indicator_1,
                                                   style={
                                                     'width': '100%',
-                                                    'height': '150px',
+                                                    'height': '100px',
                                                   })
                                     ])
                                 ])
@@ -51,7 +51,7 @@ sales_tab = html.Div(
                                         dcc.Graph(figure=fig_indicator_3,
                                                   style={
                                                     'width': '100%',
-                                                    'height': '150px'
+                                                    'height': '100px'
                                                   })
                                     ])
                                 ])
@@ -66,7 +66,7 @@ sales_tab = html.Div(
                                         dcc.Graph(figure=fig_indicator_5,
                                                   style={
                                                     'width': '100%',
-                                                    'height': '150px'
+                                                    'height': '100px'
                                                   })
                                     ])
                                 ])
@@ -91,7 +91,7 @@ sales_tab = html.Div(
                                         dcc.Graph(figure=fig_indicator_2,
                                                   style={
                                                     'width': '100%',
-                                                    'height': '150px'
+                                                    'height': '100px'
                                                   })
                                     ])
                                 ])
@@ -106,7 +106,7 @@ sales_tab = html.Div(
                                         dcc.Graph(figure=fig_indicator_4,
                                                   style={
                                                     'width': '100%',
-                                                    'height': '150px'
+                                                    'height': '100px'
                                                   })
                                     ])
                                 ])
@@ -121,7 +121,7 @@ sales_tab = html.Div(
                                         dcc.Graph(figure=fig_indicator_6,
                                                   style={
                                                     'width': '100%',
-                                                    'height': '150px'
+                                                    'height': '100px'
                                                   })
                                     ])
                                 ])
