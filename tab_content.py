@@ -41,7 +41,7 @@ sales_tab = html.Div(
                                     ])
                                 ])
                             ),
-                            width=4
+                            sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                         dbc.Col(
                             html.Div(
@@ -56,7 +56,7 @@ sales_tab = html.Div(
                                     ])
                                 ])
                             ),
-                            width=4
+                            sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                         dbc.Col(
                             html.Div(
@@ -71,7 +71,7 @@ sales_tab = html.Div(
                                     ])
                                 ])
                             ),
-                            width=4
+                            sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                     ]
                 ),
@@ -96,7 +96,7 @@ sales_tab = html.Div(
                                     ])
                                 ])
                             ),
-                            width=4
+                            sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                         dbc.Col(
                             html.Div(
@@ -111,7 +111,7 @@ sales_tab = html.Div(
                                     ])
                                 ])
                             ),
-                            width=4
+                            sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                         dbc.Col(
                             html.Div(
@@ -126,7 +126,7 @@ sales_tab = html.Div(
                                     ])
                                 ])
                             ),
-                            width=4
+                            sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                     ]
                 ),
@@ -156,39 +156,45 @@ sales_tab = html.Div(
                                         # Dropdown para seleccionar la serie
                                         # a visualizar
                                         html.Div([
-                                            
-                                            # Etiqueta
-                                            dbc.Label("Session Type",
-                                                      html_for="dropdown"),
-                                            
-                                            # Dropwdown
-                                            dcc.Dropdown(
-                                                id="my_dropdown",
-                                                options=[
-                                                    {"label": "Direct",
-                                                     "value": 'fig_time_direct'},
-                                                    {"label": "Organic",
-                                                     "value": 'fig_time_organic'},
-                                                    {"label": "Paid",
-                                                     "value": 'fig_time_paid'},
-                                                ],
-                                                value='fig_time_direct',
-                                                clearable=False,
-                                                searchable=False,
-                                            ),
-                                        ],
-                                        style={
-                                            'width': '25%'
-                                        }),
-                                        html.Br(),
+
+                                            dbc.Row([
+                                                dbc.Col([
+                                                    # Etiqueta
+                                                    dbc.Label("Session Type",
+                                                            html_for="dropdown"),
+                                                    
+                                                    # Dropwdown
+                                                    dcc.Dropdown(
+                                                        id="my_dropdown",
+                                                        options=[
+                                                            {"label": "Direct",
+                                                            "value": 'fig_time_direct'},
+                                                            {"label": "Organic",
+                                                            "value": 'fig_time_organic'},
+                                                            {"label": "Paid",
+                                                            "value": 'fig_time_paid'},
+                                                        ],
+                                                        value='fig_time_direct',
+                                                        clearable=False,
+                                                        searchable=False,
+                                                    ),
+                                                ], sm=6, md=2, lg=2, xl=2, xxl=2)
+                                            ]),
+                                        ]),
                                         
-                                        # Gráfica con la serie de tiempo
-                                        dcc.Graph(id='series_de_tiempo',
-                                                  figure={},
-                                                  style={
-                                                    'width': '100%',
-                                                    'height': '500px'
-                                                  })
+                                        html.Br(),
+
+                                        dbc.Row([
+                                            dbc.Col([
+                                                # Gráfica con la serie de tiempo
+                                                dcc.Graph(id='series_de_tiempo',
+                                                        figure={},
+                                                        style={
+                                                            'width': '100%',
+                                                            'height': '500px'
+                                                        })
+                                            ])
+                                        ]) 
                                     ])
                                 ])
                             )
@@ -216,7 +222,7 @@ sales_tab = html.Div(
                                                   })
                                     ])
                                 ])
-                            ), width=6
+                            ), sm=1, md=6, lg=6, xl=6, xxl=6
                         ),
                         
                         # Segunda gráfica de barras
@@ -232,7 +238,7 @@ sales_tab = html.Div(
                                                   })
                                     ])
                                 ])
-                            ), width=6
+                            ), sm=1, md=6, lg=6, xl=6, xxl=6
                         )
                     ]
                 ),

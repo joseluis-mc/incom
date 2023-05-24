@@ -64,7 +64,9 @@ app.layout=html.Div(
                         ]
                     ),
                 ],
+                #sm=3
             ),
+            justify='center'
         ),
         
         # Tarjeta donde vive el contenido de la aplicación
