@@ -1,5 +1,4 @@
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
 import dash_bootstrap_components as dbc
 from dash import html
 from make_datasets import fig_indicator_1
@@ -171,16 +170,20 @@ sales_tab = html.Div(
                                                     dcc.Dropdown(
                                                         id="my_dropdown",
                                                         options=[
-                                                            {"label": "Direct",
+                                                            {"label": html.Span(['Direct'], style={'color': '#037E83'}),
                                                             "value": 'fig_time_direct'},
-                                                            {"label": "Organic",
+                                                            {"label": html.Span(['Organic'], style={'color': '#037E83'}),
                                                             "value": 'fig_time_organic'},
-                                                            {"label": "Paid",
+                                                            {"label": html.Span(['Paid'], style={'color': '#037E83'}),
                                                             "value": 'fig_time_paid'},
                                                         ],
                                                         value='fig_time_direct',
                                                         clearable=False,
                                                         searchable=False,
+                                                        style={
+                                                            'border-color': '#F7B524',
+                                                            'color': 'black'
+                                                        }
                                                     ),
                                                 ], sm=6, md=2, lg=2, xl=2, xxl=2)
                                             ]),

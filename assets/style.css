@@ -11,12 +11,17 @@ body {
 .card {
     border-color: #EF7000;
     font-family: 'Open Sans';
+    border-radius: 0;
 }
 
 .card-header {
-    background-color: #077F83;
+    background-color: #037E83;
+    border: 0;
     color: white;
-    border: 0px;
+}
+
+.card-header:first-child {
+    border-radius: 0;
 }
 
 .tab {

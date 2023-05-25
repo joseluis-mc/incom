@@ -55,7 +55,7 @@ app.layout=html.Div(
                                     'Analytics Dashboard'
                                 ],
                                 style = {
-                                    'color': '#077F83',
+                                    'color': '#037E83',
                                     'font-weight': 'bold',
                                     'textAlign': 'center',
                                     'font-style': 'italic'
