@@ -39,7 +39,8 @@ sales_tab = html.Div(
                                                     'height': '100px',
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ),
                             sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
@@ -54,7 +55,8 @@ sales_tab = html.Div(
                                                     'height': '100px'
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ),
                             sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
@@ -69,14 +71,15 @@ sales_tab = html.Div(
                                                     'height': '100px'
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ),
                             sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                     ]
                 ),
                 
-                html.Br(),
+                
                 
                 # Segunda fila de indicadores
                 dbc.Row(
@@ -94,7 +97,8 @@ sales_tab = html.Div(
                                                     'height': '100px'
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ),
                             sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
@@ -109,7 +113,8 @@ sales_tab = html.Div(
                                                     'height': '100px'
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ),
                             sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
@@ -124,14 +129,13 @@ sales_tab = html.Div(
                                                     'height': '100px'
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ),
                             sm=12, md=4, lg=4, xl=4, xxl=4
                         ),
                     ]
                 ),
-
-                html.Br(),
 
                 # SERIES DE TIEMPO
                 # Sigue una tarjeta donde seleccionas una serie de tiempo
@@ -199,10 +203,9 @@ sales_tab = html.Div(
                                 ])
                             )
                         )
-                    ]
+                    ],
+                    style={'margin-bottom': '30px'}
                 ),
-
-                html.Br(),
 
                 # GRÁFICAS DE BARRAS
                 # Sigue una fila y dos columnas con gráficas de barras
@@ -221,7 +224,8 @@ sales_tab = html.Div(
                                                     'height': '450px'
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ), sm=1, md=6, lg=6, xl=6, xxl=6
                         ),
                         
@@ -237,13 +241,12 @@ sales_tab = html.Div(
                                                     'height': '450px'
                                                   })
                                     ])
-                                ])
+                                ]),
+                                style={'margin-bottom': '30px'}
                             ), sm=1, md=6, lg=6, xl=6, xxl=6
                         )
                     ]
                 ),
-
-                html.Br(),
 
                 # TREEMAP
                 # Terminamos con un treemap
