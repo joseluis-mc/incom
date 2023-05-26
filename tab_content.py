@@ -1,15 +1,17 @@
 from dash import dcc
 import dash_bootstrap_components as dbc
 from dash import html
-from make_datasets import fig_indicator_1
-from make_datasets import fig_indicator_2
-from make_datasets import fig_indicator_3
-from make_datasets import fig_indicator_4
-from make_datasets import fig_indicator_5
-from make_datasets import fig_indicator_6
-from make_datasets import fig_search_engines
-from make_datasets import fig_social_networks
-from make_datasets import fig_paid_sources
+from make_figures import fig_indicator_1
+from make_figures import fig_indicator_2
+from make_figures import fig_indicator_3
+from make_figures import fig_indicator_4
+from make_figures import fig_indicator_5
+from make_figures import fig_indicator_6
+from make_figures import fig_treemap
+from make_figures import fig_timeseries
+from make_figures import fig_bars1
+from make_figures import fig_bars2
+from make_figures import fig_table
 
 sales_tab = html.Div(
             [
@@ -29,7 +31,7 @@ sales_tab = html.Div(
                             html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(
-                                        ['Direct Sessions']
+                                        ['Organic Sessions']
                                     ),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_1,
@@ -46,49 +48,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Sessions']),
-                                    dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_3,
-                                                  style={
-                                                    'width': '100%',
-                                                    'height': '100px'
-                                                  })
-                                    ])
-                                ]),
-                                style={'margin-bottom': '30px'}
-                            ),
-                            sm=12, md=4, lg=4, xl=4, xxl=4
-                        ),
-                        dbc.Col(
-                            html.Div(
-                                dbc.Card([
-                                    dbc.CardHeader(['Organic Sessions']),
-                                    dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_5,
-                                                  style={
-                                                    'width': '100%',
-                                                    'height': '100px'
-                                                  })
-                                    ])
-                                ]),
-                                style={'margin-bottom': '30px'}
-                            ),
-                            sm=12, md=4, lg=4, xl=4, xxl=4
-                        ),
-                    ]
-                ),
-                
-                
-                
-                # Segunda fila de indicadores
-                dbc.Row(
-                    [
-
-                        # Tres columnas
-                        dbc.Col(
-                            html.Div(
-                                dbc.Card([
-                                    dbc.CardHeader(['Direct Transactions']),
+                                    dbc.CardHeader(['Organic Transactions']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_2,
                                                   style={
@@ -104,7 +64,31 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Transactions']),
+                                    dbc.CardHeader(['Conversion Rate (%)']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_3,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                    ]
+                ),
+                
+                # Segunda fila de indicadores
+                dbc.Row(
+                    [
+
+                        # Tres columnas
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Paid Sessions']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_4,
                                                   style={
@@ -120,7 +104,23 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Organic Transactions']),
+                                    dbc.CardHeader(['Paid Transactions']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_5,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Paid Rate (%)']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_6,
                                                   style={
@@ -136,11 +136,9 @@ sales_tab = html.Div(
                     ]
                 ),
 
-                # SERIES DE TIEMPO
-                # Sigue una tarjeta donde seleccionas una serie de tiempo
-                # para visualizarla
-
-                # Una fila y una columna
+                # TREEMAP
+                # Empezamos con un treemap
+                
                 dbc.Row(
                     [
                         # Título de la sección
@@ -149,54 +147,42 @@ sales_tab = html.Div(
                         ),
 
                         dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Campaigns by Channel Grouping']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_treemap,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '500px'
+                                                  })
+                                    ])
+                                ])
+                            ), width=12
+                        ),
+                    ], style={'margin-bottom': '30px'}
+                ),
+
+                # SERIES DE TIEMPO
+                # Sigue una tarjeta donde seleccionas una serie de tiempo
+                # para visualizarla
+
+                # Una fila y una columna
+                dbc.Row(
+                    [
+
+                        dbc.Col(
                             
                             # Tarjeta donde viven las series de tiempo
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Sessions-Transactions Time Series']),
+                                    dbc.CardHeader(['Weekly Sessions: Organic vs INCOM']),
                                     dbc.CardBody([
-                                        
-                                        # Dropdown para seleccionar la serie
-                                        # a visualizar
-                                        html.Div([
-
-                                            dbc.Row([
-                                                dbc.Col([
-                                                    # Etiqueta
-                                                    dbc.Label("Session Type",
-                                                            html_for="dropdown"),
-                                                    
-                                                    # Dropwdown
-                                                    dcc.Dropdown(
-                                                        id="my_dropdown",
-                                                        options=[
-                                                            {"label": html.Span(['Direct'], style={'color': '#037E83'}),
-                                                            "value": 'fig_time_direct'},
-                                                            {"label": html.Span(['Organic'], style={'color': '#037E83'}),
-                                                            "value": 'fig_time_organic'},
-                                                            {"label": html.Span(['Paid'], style={'color': '#037E83'}),
-                                                            "value": 'fig_time_paid'},
-                                                        ],
-                                                        value='fig_time_direct',
-                                                        clearable=False,
-                                                        searchable=False,
-                                                        style={
-                                                            'border-color': '#F7B524',
-                                                            'color': 'black'
-                                                        }
-                                                    ),
-                                                ], sm=6, md=2, lg=2, xl=2, xxl=2)
-                                            ]),
-                                        ]),
-                                        
-                                        html.Br(),
-
                                         dbc.Row([
                                             dbc.Col([
                                                 # Gráfica con la serie de tiempo
-                                                dcc.Graph(id='series_de_tiempo',
-                                                        figure={},
-                                                        style={
+                                                dcc.Graph(figure=fig_timeseries,
+                                                          style={
                                                             'width': '100%',
                                                             'height': '500px'
                                                         })
@@ -219,9 +205,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Organic Sessions by Search Engine']),
+                                    dbc.CardHeader(['Sessions by Campaign Source']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_search_engines,
+                                        dcc.Graph(figure=fig_bars1,
                                                   style={
                                                     'width': '100%',
                                                     'height': '450px'
@@ -236,9 +222,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Sessions by Social Network']),
+                                    dbc.CardHeader(['Sessions by Campaign Type']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_social_networks,
+                                        dcc.Graph(figure=fig_bars2,
                                                   style={
                                                     'width': '100%',
                                                     'height': '450px'
@@ -251,27 +237,32 @@ sales_tab = html.Div(
                     ]
                 ),
 
-                # TREEMAP
-                # Terminamos con un treemap
-                
+                # TABLA
+                # Cerramos con una tabla del rendimiento de cada campaña
                 dbc.Row(
                     [
-                        dbc.Col(
-                            html.Div(
-                                dbc.Card([
-                                    dbc.CardHeader(['Paid Sources']),
-                                    dbc.CardBody([
-                                        dcc.Graph(figure=fig_paid_sources,
-                                                  style={
-                                                    'width': '100%',
-                                                    'height': '500px'
-                                                  })
-                                    ])
-                                ])
-                            ), width=12
+                        # Título de la sección
+                        html.Div(
+                            children=[html.H3(["Campaign Performance Details"], style={'color': '#EF7000', 'font-style': 'italic'})]
                         ),
+
+                        dbc.Col(
+                            [
+                                html.Div(
+                                    [
+                                        dcc.Graph(
+                                            figure=fig_table,
+                                            style = {
+                                                'width': '100%',
+                                                'height': '300px'
+                                            }
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
                     ]
-                ),
+                )
             ],
             className="px-4 pt-0"
     )

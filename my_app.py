@@ -10,7 +10,7 @@ import dash_bootstrap_components as dbc # Componentes de Bootstrap
 from tab_content import sales_tab, engagement_tab # Contenido de las pestañas
 
 # Y algunas gráficas que integran un callback
-from make_datasets import fig_time_paid, fig_time_direct, fig_time_organic
+#from make_datasets import fig_time_paid, fig_time_direct, fig_time_organic
 
 #------------------------------------------------------------------------------
 # APLICACIÓN
@@ -118,19 +118,6 @@ def tab_content(active_tab):
         return sales_tab
     elif active_tab=='tab-2':
         return engagement_tab
-
-# Selección de figura en serie de tiempo
-@app.callback(
-    Output('series_de_tiempo', 'figure'),
-    [Input('my_dropdown', 'value')]
-)
-def time_series(value):
-    if value=='fig_time_direct':
-        return fig_time_direct
-    if value=='fig_time_organic':
-        return fig_time_organic
-    if value=='fig_time_paid':
-        return fig_time_paid
 
 #------------------------------------------------------------------------------
 # Corremos la aplicación
