@@ -12,6 +12,11 @@ from make_figures import fig_timeseries
 from make_figures import fig_bars1
 from make_figures import fig_bars2
 from make_figures import fig_table
+from make_figures import fig_timeseries_pestana2
+from make_figures import fig_map
+from make_figures import fig_bars3
+from make_figures import fig_bars4
+from make_figures import fig_tabla_pestana2
 
 sales_tab = html.Div(
             [
@@ -64,7 +69,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Conversion Rate (%)']),
+                                    dbc.CardHeader(['Conversion Rate']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_3,
                                                   style={
@@ -120,7 +125,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Rate (%)']),
+                                    dbc.CardHeader(['Paid Rate']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_6,
                                                   style={
@@ -240,7 +245,7 @@ sales_tab = html.Div(
                 # TABLA
                 # Cerramos con una tabla del rendimiento de cada campaña
                 dbc.Row(
-                    [
+                    [   
                         # Título de la sección
                         html.Div(
                             children=[html.H3(["Campaign Performance Details"], style={'color': '#EF7000', 'font-style': 'italic'})]
@@ -254,7 +259,7 @@ sales_tab = html.Div(
                                             figure=fig_table,
                                             style = {
                                                 'width': '100%',
-                                                'height': '300px'
+                                                'height': '400px'
                                             }
                                         )
                                     ]
@@ -269,60 +274,134 @@ sales_tab = html.Div(
 
 engagement_tab = html.Div(
             [
-                # Indicadores
+                
+                # Serie de Tiempo
+                # Empezamos con una serie de tiempo
+                
                 dbc.Row(
                     [
+                        # Título de la sección
                         html.Div(
-                            children=[html.H1(["Indicadores 2"])]
+                            children=[html.H3(["Visualizations"], style={'color': '#EF7000', 'font-style': 'italic'})]
                         ),
+
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
-                            ),
-                            width=3
+                                dbc.Card([
+                                    dbc.CardHeader(['Search Trends for TOEFL IBT']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_timeseries_pestana2,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '500px'
+                                                  })
+                                    ])
+                                ])
+                            ), width=12
                         ),
+                    ], style={'margin-bottom': '30px'}
+                ),
+
+                # GRÁFICAS DE BARRAS
+                # Sigue una fila y dos columnas con gráficas de barras
+
+                dbc.Row(
+                    [
+                        # Primera gráfica de barras
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
-                            ),
-                            width=3
+                                dbc.Card([
+                                    dbc.CardHeader(['Sessions by Region (Top 5)']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_bars3,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '450px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ), sm=1, md=6, lg=6, xl=6, xxl=6
                         ),
+                        
+                        # Segunda gráfica de barras
                         dbc.Col(
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
-                            ),
-                            width=3
-                        ),
-                        dbc.Col(
-                            html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
-                                )
-                            ),
-                            width=3
+                                dbc.Card([
+                                    dbc.CardHeader(['Mapa']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_map,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '450px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ), sm=1, md=6, lg=6, xl=6, xxl=6
                         )
                     ]
                 ),
-                html.Br(),
-                # Más indicadores
+
+                # SERIES DE TIEMPO
+                # Sigue una tarjeta donde seleccionas una serie de tiempo
+                # para visualizarla
+
+                # Una fila y una columna
                 dbc.Row(
                     [
+
                         dbc.Col(
+                            
+                            # Tarjeta donde viven las series de tiempo
                             html.Div(
-                                dbc.Card(
-                                    dbc.CardBody("This is some text within a card body")
+                                dbc.Card([
+                                    dbc.CardHeader(['Sessions by Hour of Day']),
+                                    dbc.CardBody([
+                                        dbc.Row([
+                                            dbc.Col([
+                                                # Gráfica con la serie de tiempo
+                                                dcc.Graph(figure=fig_bars4,
+                                                          style={
+                                                            'width': '100%',
+                                                            'height': '500px'
+                                                        })
+                                            ])
+                                        ]) 
+                                    ])
+                                ])
+                            )
+                        )
+                    ],
+                    style={'margin-bottom': '30px'}
+                ),
+
+                # TABLA
+                # Cerramos con una tabla del rendimiento de cada campaña
+                dbc.Row(
+                    [   
+                        # Título de la sección
+                        html.Div(
+                            children=[html.H3(["Campaign Performance Details"], style={'color': '#EF7000', 'font-style': 'italic'})]
+                        ),
+
+                        dbc.Col(
+                            [
+                                html.Div(
+                                    [
+                                        dcc.Graph(
+                                            figure=fig_tabla_pestana2,
+                                            style = {
+                                                'width': '100%',
+                                                'height': '550px'
+                                            }
+                                        )
+                                    ]
                                 )
-                            ),
-                            width=3
+                            ]
                         )
                     ]
                 )
             ],
-            className="px-4 pt-4"
-        )
+            className="px-4 pt-0"
+    )

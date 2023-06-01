@@ -85,7 +85,7 @@ app.layout=html.Div(
                             # Pestaña de "engagement"
                             dbc.Tab(label='Engagement',
                                     tab_id='tab-2',
-                                    disabled=True,
+                                    disabled=False,
                                     label_style = {'borderColor': 'white'}
                                 ),
                         ],
