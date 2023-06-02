@@ -53,7 +53,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Transactions from Organic Sessions']),
+                                    dbc.CardHeader(['Order Confirmations (Organic)']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_2,
                                                   style={
@@ -109,7 +109,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Transactions from Paid Sessions']),
+                                    dbc.CardHeader(['Order Confirmations (Paid)']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_5,
                                                   style={
