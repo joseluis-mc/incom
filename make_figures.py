@@ -1,6 +1,7 @@
 #### Importa librerías
 # Data manipulation
 import pandas as pd
+import json
 
 # Viz
 import plotly
@@ -250,7 +251,7 @@ def make_tree_paid_sources(data, title):
 def make_timeseries(data, title):
     plot_data = data.resample(rule = 'w').sum()
     # Add traces for the first time series on the top subplot
-    fig = px.line(data_frame=plot_data, y = 'TOEFL IBT', labels={'date': 'Date', 'TOEFL IBT': 'Hits'})
+    fig = px.line(data_frame=plot_data, y = 'TOEFL IBT', labels={'date': '', 'TOEFL IBT': 'Hits'})
     
     # Update the layout of the figure to improve the overall appearance
     #fig.update_layout(width = 1000, height = 500)
@@ -273,17 +274,27 @@ def make_timeseries(data, title):
     return fig
 
 def make_choropleth(data):
-    fig = px.choropleth_mapbox(data,
-                        geojson='mexico_estados.json',
+    open_file = open('incom/datasets/mexico_estados.json')
+
+    polygon = json.load(open_file)
+
+    fig = px.choropleth(data,
+                        geojson=polygon,
                         locations='region',
                         featureidkey='properties.name',
                         color='sessions',
-                        title='Sessions by Region',
-                        color_continuous_scale='Viridis')
+                        #title='Sessions by Region',
+                        color_continuous_scale='Teal')
 
     fig.update_geos(showcountries=True,
                     showcoastlines=True,
-                    fitbounds='locations')
+                    #fitbounds='locations',
+                    lataxis_range=[15,30], lonaxis_range=[-115, -90]
+                )
+    
+    fig.update(layout_coloraxis_showscale=False)
+
+    fig.update_layout(margin = dict(t=0, l=0, r=0, b=0))
     
     return fig
 
@@ -303,10 +314,8 @@ def make_bars3(data):
                  }
                  )
 
-
     # Update the layout of the figure to improve the overall appearance
     #fig.update_layout(width = 1000, height = 500)
-    
     
     fig.update_layout(#title = 'Sessions by campaign source',
                       title_x = .5,

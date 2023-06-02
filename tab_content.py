@@ -53,7 +53,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Organic Transactions']),
+                                    dbc.CardHeader(['Transactions from Organic Sessions']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_2,
                                                   style={
@@ -69,7 +69,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Conversion Rate']),
+                                    dbc.CardHeader(['Organic Conversion Rate']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_3,
                                                   style={
@@ -109,7 +109,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Transactions']),
+                                    dbc.CardHeader(['Transactions from Paid Sessions']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_5,
                                                   style={
@@ -125,7 +125,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Rate']),
+                                    dbc.CardHeader(['Paid Conversion Rate']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_6,
                                                   style={
@@ -288,7 +288,7 @@ engagement_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Search Trends for TOEFL IBT']),
+                                    dbc.CardHeader(['Google Trend Search Hits for Keyword "TOEFL iBT"']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_timeseries_pestana2,
                                                   style={
@@ -328,7 +328,7 @@ engagement_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Mapa']),
+                                    dbc.CardHeader(['Sessions by Region (Map)']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_map,
                                                   style={

@@ -9,9 +9,6 @@ import dash_bootstrap_components as dbc # Componentes de Bootstrap
 # Contenido de otros archivos
 from tab_content import sales_tab, engagement_tab # Contenido de las pestañas
 
-# Y algunas gráficas que integran un callback
-#from make_datasets import fig_time_paid, fig_time_direct, fig_time_organic
-
 #------------------------------------------------------------------------------
 # APLICACIÓN
 
@@ -19,7 +16,6 @@ from tab_content import sales_tab, engagement_tab # Contenido de las pestañas
 app = Dash(
     __name__,
     external_stylesheets=[dbc.themes.BOOTSTRAP], # Integramos Bootstrap
-    #external_stylesheets=external_stylesheets, # Integramos Bootstrap
     meta_tags=[
         {"name": "viewport",
          "content": "width=device-width, initial-scale=1"},
@@ -79,14 +75,14 @@ app.layout=html.Div(
                             # Pestaña de ventas
                             dbc.Tab(label='Sales',
                                     tab_id='tab-1',
-                                    label_style = {'borderColor': 'white'}
+                                    #label_style = {'borderColor': 'white'}
                                 ),
 
                             # Pestaña de "engagement"
                             dbc.Tab(label='Engagement',
                                     tab_id='tab-2',
                                     disabled=False,
-                                    label_style = {'borderColor': 'white'}
+                                    #label_style = {'borderColor': 'white'}
                                 ),
                         ],
                         id='card-tabs',
