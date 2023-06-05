@@ -69,6 +69,35 @@ def make_indicator_percentage(data, data_delta, var, title):
     
     return fig
 
+def make_indicator_percentage2(data, data_delta, var, title):
+
+    # Figura
+    trace = go.Indicator(value = data.loc[:, var].sum(),
+                         mode = 'number',
+                         delta = {'reference': data_delta.loc[:, var].sum()*1.03},
+                         number = {'suffix': '%'}
+                         )
+    fig = go.Figure(data = trace)
+    
+    # Dimensiones
+    #fig.update_layout(width = 200,height = 200)
+
+    # Estética
+    fig.update_layout(plot_bgcolor='white',
+                      paper_bgcolor='white',
+                      #title = title,
+                      title_x = .5)
+    # Fonts
+    fig.update_traces(title_font_size = 25,
+                      title_font_family = 'Open Sans',
+                      number_font_size = 50,
+                      number_font_family = 'Open Sans',
+                      number_font_color = 'black',
+                      delta_font_size = 25,
+                      delta_font_family = 'Open Sans',)
+    
+    return fig
+
 def make_double_timeseries(data, data2, var, title):
     plot_data1 = data.resample(on = 'date', rule = 'w')[var].sum()
     plot_data2 = data2.resample(on = 'date', rule = 'w')[var].sum()
@@ -449,7 +478,7 @@ nuevo_indicador2 = make_indicator(indicadores_sheets, indicadores_sheets, 'Accou
 nuevo_indicador3 = make_indicator(indicadores_sheets, indicadores_sheets, 'Account Creation Success', 'Account Creation Success')
 nuevo_indicador4 = make_indicator(indicadores_sheets, indicadores_sheets, 'Register For a Test Intent', 'Register For a Test Intent')
 nuevo_indicador5 = make_indicator(indicadores_sheets, indicadores_sheets, 'Order Confirmation', 'Order Confirmation')
-nuevo_indicador6 = make_indicator(indicadores_sheets, indicadores_sheets, 'ROI', 'ROI')
+nuevo_indicador6 = make_indicator_percentage2(indicadores_sheets, indicadores_sheets, 'ROI', 'ROI')
 
 # Treemap
 fig_treemap = make_tree_paid_sources(paid_groupings, 'Campaigns by Channel Grouping')
