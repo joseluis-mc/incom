@@ -1,6 +1,12 @@
 from dash import dcc
 import dash_bootstrap_components as dbc
 from dash import html
+from make_figures import nuevo_indicador1
+from make_figures import nuevo_indicador2
+from make_figures import nuevo_indicador3
+from make_figures import nuevo_indicador4
+from make_figures import nuevo_indicador5
+from make_figures import nuevo_indicador6
 from make_figures import fig_indicator_1
 from make_figures import fig_indicator_2
 from make_figures import fig_indicator_3
@@ -12,7 +18,11 @@ from make_figures import fig_timeseries
 from make_figures import fig_bars1
 from make_figures import fig_bars2
 from make_figures import fig_table
-from make_figures import fig_timeseries_pestana2
+from make_figures import search_term1
+from make_figures import search_term2
+from make_figures import search_term3
+from make_figures import search_term4
+from make_figures import search_term5
 from make_figures import fig_map
 from make_figures import fig_bars3
 from make_figures import fig_bars4
@@ -36,10 +46,10 @@ sales_tab = html.Div(
                             html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(
-                                        ['Organic Sessions']
+                                        ['eReg Reached']
                                     ),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_1,
+                                        dcc.Graph(figure=nuevo_indicador1,
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px',
@@ -53,9 +63,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Order Confirmations (Organic)']),
+                                    dbc.CardHeader(['Account Creation Intent']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_2,
+                                        dcc.Graph(figure=nuevo_indicador2,
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -69,9 +79,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Organic Conversion Rate']),
+                                    dbc.CardHeader(['Account Creation Success']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_3,
+                                        dcc.Graph(figure=nuevo_indicador3,
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -93,9 +103,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Sessions']),
+                                    dbc.CardHeader(['Register For a Test Intent']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_4,
+                                        dcc.Graph(figure=nuevo_indicador4,
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -109,9 +119,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Order Confirmations (Paid)']),
+                                    dbc.CardHeader(['Order Confirmation']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_5,
+                                        dcc.Graph(figure=nuevo_indicador5,
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -125,9 +135,9 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Paid Conversion Rate']),
+                                    dbc.CardHeader(['ROI']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_6,
+                                        dcc.Graph(figure=nuevo_indicador6,
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -274,7 +284,127 @@ sales_tab = html.Div(
 
 engagement_tab = html.Div(
             [
+                # INDICADORES
+                # Empezamos con dos filas y tres columnas de indicadores
                 
+                # Primera fila de indicadores
+                dbc.Row(
+                    [
+                        # Título de la sección
+                        html.Div(
+                            children=[html.H3(["Key Metrics"], style={'color': '#EF7000', 'font-style': 'italic'})]
+                        ),
+
+                        # Tres columnas
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(
+                                        ['Organic Sessions']
+                                    ),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_1,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px',
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Order Confirmations (Organic)']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_2,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Organic Conversion Rate']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_3,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                    ]
+                ),
+                
+                # Segunda fila de indicadores
+                dbc.Row(
+                    [
+
+                        # Tres columnas
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Paid Sessions']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_4,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Order Confirmations (Paid)']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_5,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                        dbc.Col(
+                            html.Div(
+                                dbc.Card([
+                                    dbc.CardHeader(['Paid Conversion Rate']),
+                                    dbc.CardBody([
+                                        dcc.Graph(figure=fig_indicator_6,
+                                                  style={
+                                                    'width': '100%',
+                                                    'height': '100px'
+                                                  })
+                                    ])
+                                ]),
+                                style={'margin-bottom': '30px'}
+                            ),
+                            sm=12, md=4, lg=4, xl=4, xxl=4
+                        ),
+                    ]
+                ),
+
                 # Serie de Tiempo
                 # Empezamos con una serie de tiempo
                 
@@ -288,13 +418,41 @@ engagement_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Google Trend Search Hits for Keyword "TOEFL iBT"']),
+                                    dbc.CardHeader(['Google Trend Search Hits']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_timeseries_pestana2,
-                                                  style={
-                                                    'width': '100%',
-                                                    'height': '500px'
-                                                  })
+                                        # Dropdown para seleccionar la serie a visualizar
+                                        html.Div(
+                                            [
+                                                # Etiqueta
+                                                dbc.Label('Search Term'),
+
+                                                # Dropdown
+                                                dcc.Dropdown(
+                                                    id = 'my_dropdown',
+                                                    options=[
+                                                        {'label': 'TOEFL', 'value': 'TOEFL'},
+                                                        {'label': 'TOEFL iBT México', 'value': 'TOEFL IBT MEXICO'},
+                                                        {'label': 'México examen inglés', 'value': 'MEXICO EXAMEN INGLES'},
+                                                        {'label': 'Certificación de inglés', 'value': 'CERTIFICACION DE INGLES'},
+                                                        {'label': 'TOEFL online', 'value': 'TOEFL ONLINE'}
+                                                    ],
+                                                    value='TOEFL',
+                                                    searchable=False,
+                                                    clearable=False
+                                                ),
+                                            ], style={'width': '25%'}
+                                        ),
+
+                                        html.Br(),
+
+                                        dcc.Graph(
+                                            id = 'series_de_tiempo',
+                                            figure = search_term1,
+                                            style={
+                                                'width': '100%',
+                                                'height': '500px'
+                                            }
+                                        )
                                     ])
                                 ])
                             ), width=12

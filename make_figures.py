@@ -11,7 +11,7 @@ import plotly.graph_objects as go
 
 #### Define funciones
 def make_indicator(data, data_delta, var, title):
-    data['conversionRate'] = data['transactions'].sum() / data['sessions'].sum() * 100
+    #data['conversionRate'] = data['transactions'].sum() / data['sessions'].sum() * 100
 
     # Figura
     trace = go.Indicator(value = data.loc[:, var].sum(),
@@ -248,15 +248,16 @@ def make_tree_paid_sources(data, title):
     
     return fig
 
-def make_timeseries(data, title):
+def make_timeseries(data, col):
+    title = f'Weekly search trend for: {col} from México'
     plot_data = data.resample(rule = 'w').sum()
     # Add traces for the first time series on the top subplot
-    fig = px.line(data_frame=plot_data, y = 'TOEFL IBT', labels={'date': '', 'TOEFL IBT': 'Hits'})
+    fig = px.line(data_frame=plot_data, y = col, labels={'date': ''})
     
     # Update the layout of the figure to improve the overall appearance
     #fig.update_layout(width = 1000, height = 500)
     
-    fig.update_layout(#title = title,
+    fig.update_layout(title = title,
                   title_x = .5,
                   #plot_bgcolor='#F9F9F9',
                   #paper_bgcolor='#F9F9F9',
@@ -426,14 +427,15 @@ def make_table2(data):
 
 #### Carga datos
 # Pestaña 1
-organic_indicators = pd.read_pickle('incom/datasets/organic_indicators.pkl')
-paid_indicators = pd.read_pickle('incom/datasets/paid_indicators.pkl')
+indicadores_sheets = pd.read_pickle('incom/datasets/indicadores_sheets.pkl')
 organic_sessions_ts = pd.read_pickle('incom/datasets/organic_sessions_ts.pkl')
 paid_sessions_ts = pd.read_pickle('incom/datasets/paid_sessions_ts.pkl')
 campaign_detail = pd.read_pickle('incom/datasets/campaign_detail.pkl')
 paid_groupings = pd.read_pickle('incom/datasets/paid_groupings.pkl')
 
 #Pestaña 2
+paid_indicators = pd.read_pickle('incom/datasets/paid_indicators.pkl')
+organic_indicators = pd.read_pickle('incom/datasets/organic_indicators.pkl')
 search_trends = pd.read_pickle('incom/datasets/search_trends.pkl')
 paid_map = pd.read_pickle('incom/datasets/paid_map.pkl')
 paid_hours = pd.read_pickle('incom/datasets/paid_hours.pkl')
@@ -441,6 +443,31 @@ summary_table = pd.read_pickle('incom/datasets/summary_table.pkl')
 
 
 #### Plots Pestaña 1
+# Indicadores
+nuevo_indicador1 = make_indicator(indicadores_sheets, indicadores_sheets, 'eReg Reached', 'eReg Reached')
+nuevo_indicador2 = make_indicator(indicadores_sheets, indicadores_sheets, 'Account Creation Intent', 'Account Creation Intent')
+nuevo_indicador3 = make_indicator(indicadores_sheets, indicadores_sheets, 'Account Creation Success', 'Account Creation Success')
+nuevo_indicador4 = make_indicator(indicadores_sheets, indicadores_sheets, 'Register For a Test Intent', 'Register For a Test Intent')
+nuevo_indicador5 = make_indicator(indicadores_sheets, indicadores_sheets, 'Order Confirmation', 'Order Confirmation')
+nuevo_indicador6 = make_indicator(indicadores_sheets, indicadores_sheets, 'ROI', 'ROI')
+
+# Treemap
+fig_treemap = make_tree_paid_sources(paid_groupings, 'Campaigns by Channel Grouping')
+
+# Bars
+fig_bars1 = make_bars(campaign_detail)
+fig_bars2 = make_bars2(campaign_detail)
+
+# Table
+fig_table = make_table(campaign_detail[['campaign','source','medium','sessions']])
+
+# TimeSeries
+fig_timeseries = make_double_timeseries(organic_sessions_ts, paid_sessions_ts, 'sessions', 'Weekly sessions')
+
+
+
+
+#### Plots Pestaña 2
 # Indicadores
 fig_indicator_1 = make_indicator(organic_indicators,
                                  organic_indicators,
@@ -467,25 +494,13 @@ fig_indicator_6 = make_indicator_percentage(paid_indicators,
                                  'conversionRate',
                                  'Conversion rate %')
 
-# Treemap
-fig_treemap = make_tree_paid_sources(paid_groupings, 'Campaigns by Channel Grouping')
-
-# Bars
-fig_bars1 = make_bars(campaign_detail)
-fig_bars2 = make_bars2(campaign_detail)
-
-# Table
-fig_table = make_table(campaign_detail[['campaign','source','medium','sessions']])
-
 # TimeSeries
-fig_timeseries = make_double_timeseries(organic_sessions_ts, paid_sessions_ts, 'sessions', 'Weekly sessions')
-
-
-
-
-#### Plots Pestaña 2
-# TimeSeries
-fig_timeseries_pestana2 = make_timeseries(search_trends, 'Weekly search trend for: TOEFL IBT from México')
+search_term1 =  make_timeseries(search_trends, 'TOEFL')
+search_term2 =  make_timeseries(search_trends, 'TOEFL IBT MEXICO')
+search_term3 =  make_timeseries(search_trends, 'MEXICO EXAMEN INGLES')
+search_term4 =  make_timeseries(search_trends, 'CERTIFICACION DE INGLES')
+search_term5 =  make_timeseries(search_trends, 'TOEFL ONLINE')
+#fig_timeseries_pestana2 = make_timeseries(search_trends, 'Weekly search trend for: TOEFL IBT from México')
 
 # Map
 fig_map = make_choropleth(paid_map)

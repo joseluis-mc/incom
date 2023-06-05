@@ -8,6 +8,11 @@ import dash_bootstrap_components as dbc # Componentes de Bootstrap
 
 # Contenido de otros archivos
 from tab_content import sales_tab, engagement_tab # Contenido de las pestañas
+from tab_content import search_term1
+from tab_content import search_term2
+from tab_content import search_term3
+from tab_content import search_term4
+from tab_content import search_term5
 
 #------------------------------------------------------------------------------
 # APLICACIÓN
@@ -114,6 +119,23 @@ def tab_content(active_tab):
         return sales_tab
     elif active_tab=='tab-2':
         return engagement_tab
+
+# Selección de figura en serie de tiempo
+@app.callback(
+    Output('series_de_tiempo', 'figure'),
+    [Input('my_dropdown', 'value')]
+)
+def time_series(value):
+    if value=='TOEFL':
+        return search_term1
+    if value=='TOEFL IBT MEXICO':
+        return search_term2
+    if value=='MEXICO EXAMEN INGLES':
+        return search_term3
+    if value=='CERTIFICACION DE INGLES':
+        return search_term4
+    if value=='TOEFL ONLINE':
+        return search_term5
 
 #------------------------------------------------------------------------------
 # Corremos la aplicación
