@@ -46,7 +46,7 @@ sales_tab = html.Div(
                             html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(
-                                        ['eReg Reached']
+                                        ['Ereg Reached']
                                     ),
                                     dbc.CardBody([
                                         dcc.Graph(figure=nuevo_indicador1,
@@ -63,7 +63,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Account Creation Intent']),
+                                    dbc.CardHeader(['Acc. Creation Intent']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=nuevo_indicador2,
                                                   style={
@@ -79,7 +79,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Account Creation Success']),
+                                    dbc.CardHeader(['Acc. Creation Success']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=nuevo_indicador3,
                                                   style={
@@ -103,7 +103,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Register For a Test Intent']),
+                                    dbc.CardHeader(['Register for a Test Intent']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=nuevo_indicador4,
                                                   style={
@@ -119,7 +119,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Order Confirmation']),
+                                    dbc.CardHeader(['Order Confirmations (Paid)']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=nuevo_indicador5,
                                                   style={
@@ -135,7 +135,12 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['ROI']),
+                                    dbc.CardHeader(['Average ROI'], id = 'tooltip-target'),
+                                    dbc.Tooltip(
+                                        '=Total Spend/transactionRevenue',
+                                        target = 'tooltip-target',
+                                        placement = 'auto-start'
+                                    ),
                                     dbc.CardBody([
                                         dcc.Graph(figure=nuevo_indicador6,
                                                   style={
@@ -158,7 +163,7 @@ sales_tab = html.Div(
                     [
                         # Título de la sección
                         html.Div(
-                            children=[html.H3(["Visualizations"], style={'color': '#EF7000', 'font-style': 'italic'})]
+                            children=[html.H3(["Campaign Performance Details"], style={'color': '#EF7000', 'font-style': 'italic'})]
                         ),
 
                         dbc.Col(
@@ -178,6 +183,28 @@ sales_tab = html.Div(
                     ], style={'margin-bottom': '30px'}
                 ),
 
+                # TABLA
+                # Cerramos con una tabla del rendimiento de cada campaña
+                dbc.Row(
+                    [   
+                        dbc.Col(
+                            [
+                                html.Div(
+                                    [
+                                        dcc.Graph(
+                                            figure=fig_table,
+                                            style = {
+                                                'width': '100%',
+                                                'height': '400px'
+                                            }
+                                        )
+                                    ]
+                                )
+                            ]
+                        )
+                    ], style={'margin-bottom': '30px'}
+                ),
+
                 # SERIES DE TIEMPO
                 # Sigue una tarjeta donde seleccionas una serie de tiempo
                 # para visualizarla
@@ -185,13 +212,17 @@ sales_tab = html.Div(
                 # Una fila y una columna
                 dbc.Row(
                     [
+                        # Título de la sección
+                        # html.Div(
+                        #     children=[html.H3(["Sessions and Campaigns"], style={'color': '#EF7000', 'font-style': 'italic'})]
+                        # ),
 
                         dbc.Col(
                             
                             # Tarjeta donde viven las series de tiempo
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Weekly Sessions: Organic vs INCOM']),
+                                    dbc.CardHeader(['Weekly Sessions: Organic vs generated by INCOM']),
                                     dbc.CardBody([
                                         dbc.Row([
                                             dbc.Col([
@@ -237,7 +268,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Sessions by Campaign Type']),
+                                    dbc.CardHeader(['Sessions by Campaign']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_bars2,
                                                   style={
@@ -252,32 +283,6 @@ sales_tab = html.Div(
                     ]
                 ),
 
-                # TABLA
-                # Cerramos con una tabla del rendimiento de cada campaña
-                dbc.Row(
-                    [   
-                        # Título de la sección
-                        html.Div(
-                            children=[html.H3(["Campaign Performance Details"], style={'color': '#EF7000', 'font-style': 'italic'})]
-                        ),
-
-                        dbc.Col(
-                            [
-                                html.Div(
-                                    [
-                                        dcc.Graph(
-                                            figure=fig_table,
-                                            style = {
-                                                'width': '100%',
-                                                'height': '400px'
-                                            }
-                                        )
-                                    ]
-                                )
-                            ]
-                        )
-                    ]
-                )
             ],
             className="px-4 pt-0"
     )
@@ -317,7 +322,7 @@ engagement_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Order Confirmations (Organic)']),
+                                    dbc.CardHeader(['Organic order confirmations']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_2,
                                                   style={
@@ -373,7 +378,7 @@ engagement_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Order Confirmations (Paid)']),
+                                    dbc.CardHeader(['Paid order confirmations']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_indicator_5,
                                                   style={
@@ -551,14 +556,14 @@ engagement_tab = html.Div(
                                             figure=fig_tabla_pestana2,
                                             style = {
                                                 'width': '100%',
-                                                'height': '550px'
+                                                'height': '200px'
                                             }
                                         )
                                     ]
                                 )
                             ]
                         )
-                    ]
+                    ], style={'margin-bottom': '30px'}
                 )
             ],
             className="px-4 pt-0"

@@ -211,7 +211,7 @@ def make_table(data):
         data = [
             go.Table(
                 header = dict(
-                    values = data.columns.tolist(),
+                    values = ['Campaign','Source','Medium','Sessions'],
                     line_color = '#EF7000',
                     fill_color = '#037E83',
                     font = dict(
@@ -405,7 +405,16 @@ def make_table2(data):
         data = [
             go.Table(
                 header = dict(
-                    values = data.columns.tolist(),
+                    values = [
+                        'campaign',
+                        'sessions',
+                        'users',
+                        'adCost',
+                        'bounceRate',
+                        'avgSessionDuration',
+                        'transactions',
+                        'transaction - order confirmation'
+                    ],
                     line_color = '#EF7000',
                     fill_color = '#037E83',
                     font = dict(
@@ -435,7 +444,7 @@ def make_table2(data):
                     'left','left','left','left'],
                     height = 30
                 ),
-                columnwidth = [300,100,100]
+                columnwidth = [300, 100, 100, 100, 100, 100, 100, 100]
             )
         ]
     )
