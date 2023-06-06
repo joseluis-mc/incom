@@ -169,7 +169,7 @@ sales_tab = html.Div(
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
-                                    dbc.CardHeader(['Campaigns by Channel Grouping']),
+                                    dbc.CardHeader(['Sessions by Campaign - Channel Grouping']),
                                     dbc.CardBody([
                                         dcc.Graph(figure=fig_treemap,
                                                   style={
@@ -180,7 +180,7 @@ sales_tab = html.Div(
                                 ])
                             ), width=12
                         ),
-                    ], style={'margin-bottom': '30px'}
+                    ], style={'margin-bottom': '10px'}
                 ),
 
                 # TABLA
@@ -195,14 +195,14 @@ sales_tab = html.Div(
                                             figure=fig_table,
                                             style = {
                                                 'width': '100%',
-                                                'height': '400px'
+                                                'height': '225px'
                                             }
                                         )
                                     ]
                                 )
                             ]
                         )
-                    ], style={'margin-bottom': '30px'}
+                    ], style={'margin-bottom': '40px'}
                 ),
 
                 # SERIES DE TIEMPO
