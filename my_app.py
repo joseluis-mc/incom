@@ -137,6 +137,8 @@ def time_series(value):
     if value=='TOEFL ONLINE':
         return search_term5
 
+# Actualizar indicador 1
+
 #------------------------------------------------------------------------------
 # Corremos la aplicación
 if __name__ == '__main__':

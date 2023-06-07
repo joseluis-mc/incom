@@ -131,6 +131,7 @@ def make_double_timeseries(data, data2, var, title):
     return fig
 
 def make_bars(data):
+    data['source'] = data['source'].str.capitalize().str.replace('Paid_google', 'Google - Paid')
     plot_data = data.groupby(['source'])[['sessions']].sum().reset_index()
     plot_data = plot_data.sort_values(by = 'sessions')
     
