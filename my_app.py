@@ -8,11 +8,80 @@ import dash_bootstrap_components as dbc # Componentes de Bootstrap
 
 # Contenido de otros archivos
 from tab_content import sales_tab, engagement_tab # Contenido de las pestañas
-from tab_content import search_term1
-from tab_content import search_term2
-from tab_content import search_term3
-from tab_content import search_term4
-from tab_content import search_term5
+# Figuras Pestaña 1
+from make_figures import nuevo_indicador1
+from make_figures import nuevo_indicador2
+from make_figures import nuevo_indicador3
+from make_figures import nuevo_indicador4
+from make_figures import nuevo_indicador5
+from make_figures import nuevo_indicador6
+from make_figures import fig_treemap
+from make_figures import fig_treemap_90
+from make_figures import fig_treemap_180
+from make_figures import fig_treemap_365
+from make_figures import fig_bars1
+from make_figures import fig_bars2
+from make_figures import fig_bars1_90
+from make_figures import fig_bars2_90
+from make_figures import fig_bars1_180
+from make_figures import fig_bars2_180
+from make_figures import fig_bars1_365
+from make_figures import fig_bars2_365
+from make_figures import fig_table
+from make_figures import fig_table_90
+from make_figures import fig_table_180
+from make_figures import fig_table_365
+from make_figures import fig_timeseries
+from make_figures import fig_timeseries_90
+from make_figures import fig_timeseries_180
+from make_figures import fig_timeseries_365
+
+# Figuras Pestaña 2
+from make_figures import fig_indicator_1
+from make_figures import fig_indicator_2
+from make_figures import fig_indicator_3
+from make_figures import fig_indicator_4
+from make_figures import fig_indicator_5
+from make_figures import fig_indicator_6
+from make_figures import fig_indicator_1_90
+from make_figures import fig_indicator_2_90
+from make_figures import fig_indicator_3_90
+from make_figures import fig_indicator_4_90
+from make_figures import fig_indicator_5_90
+from make_figures import fig_indicator_6_90
+from make_figures import fig_indicator_1_180
+from make_figures import fig_indicator_2_180
+from make_figures import fig_indicator_3_180
+from make_figures import fig_indicator_4_180
+from make_figures import fig_indicator_5_180
+from make_figures import fig_indicator_6_180
+from make_figures import fig_indicator_1_365
+from make_figures import fig_indicator_2_365
+from make_figures import fig_indicator_3_365
+from make_figures import fig_indicator_4_365
+from make_figures import fig_indicator_5_365
+from make_figures import fig_indicator_6_365
+from make_figures import search_term1_365
+from make_figures import search_term2_365
+from make_figures import search_term3_365
+from make_figures import search_term4_365
+from make_figures import search_term5_365
+from make_figures import fig_map
+from make_figures import fig_map_90
+from make_figures import fig_map_180
+from make_figures import fig_map_365
+from make_figures import fig_bars3
+from make_figures import fig_bars4
+from make_figures import fig_bars3_90
+from make_figures import fig_bars4_90
+from make_figures import fig_bars3_180   
+from make_figures import fig_bars4_180
+from make_figures import fig_bars3_365
+from make_figures import fig_bars4_365
+from make_figures import fig_tabla_pestana2
+from make_figures import fig_tabla_pestana2_90
+from make_figures import fig_tabla_pestana2_180
+from make_figures import fig_tabla_pestana2_365
 
 #------------------------------------------------------------------------------
 # APLICACIÓN
@@ -68,6 +137,33 @@ app.layout=html.Div(
                 #sm=3
             ),
             justify='center'
+        ),
+
+        dbc.Row(
+            dbc.Col(
+                [
+                    html.Div(
+                        html.P('Select a timeframe to view your data:'), style = {'margin-left': '20px'}
+                    ),
+                    html.Div(
+                        [
+                            dbc.RadioItems(
+                                id="radios",
+                                className="btn-group",
+                                inputClassName="btn-check",
+                                labelClassName="btn btn-outline-primary",
+                                labelCheckedClassName="active",
+                                options=[
+                                    {"label": "Last 90 days", "value": 90},
+                                    {"label": "Last 180 days", "value": 180},
+                                    {"label": "Last 365 days", "value": 365},
+                                ],
+                                value=90
+                            )
+                        ], className="radio-group", style = {'margin-left': '20px'}
+                    ),
+                ]
+            )
         ),
         
         # Tarjeta donde vive el contenido de la aplicación
@@ -127,17 +223,197 @@ def tab_content(active_tab):
 )
 def time_series(value):
     if value=='TOEFL':
-        return search_term1
+        return search_term1_365
     if value=='TOEFL IBT MEXICO':
-        return search_term2
+        return search_term2_365
     if value=='MEXICO EXAMEN INGLES':
-        return search_term3
+        return search_term3_365
     if value=='CERTIFICACION DE INGLES':
-        return search_term4
+        return search_term4_365
     if value=='TOEFL ONLINE':
-        return search_term5
+        return search_term5_365
+    
+# Actualizar figuras
+@app.callback(
+    Output("treemap", "figure"),
+    [Input("radios", "value")]
+)
+def treemap(value):
+    if value==90:
+        return fig_treemap_90
+    if value==180:
+        return fig_treemap_180
+    if value==365:
+        return fig_treemap_365
+    
+@app.callback(
+    Output("bars1", "figure"),
+    [Input("radios", "value")]
+)
+def bars1(value):
+    if value==90:
+        return fig_bars1_90
+    if value==180:
+        return fig_bars1_180
+    if value==365:
+        return fig_bars1_365
 
-# Actualizar indicador 1
+@app.callback(
+    Output("bars2", "figure"),
+    [Input("radios", "value")]
+)
+def bars2(value):
+    if value==90:
+        return fig_bars2_90
+    if value==180:
+        return fig_bars2_180
+    if value==365:
+        return fig_bars2_365
+    
+@app.callback(
+    Output("table", "figure"),
+    [Input("radios", "value")]
+)
+def table(value):
+    if value==90:
+        return fig_table_90
+    if value==180:
+        return fig_table_180
+    if value==365:
+        return fig_table_365
+    
+@app.callback(
+    Output("timeseries", "figure"),
+    [Input("radios", "value")]
+)
+def timeseries(value):
+    if value==90:
+        return fig_timeseries_90
+    if value==180:
+        return fig_timeseries_180
+    if value==365:
+        return fig_timeseries_365
+
+@app.callback(
+    Output("indicator_1", "figure"),
+    [Input("radios", "value")]
+)
+def indicator1(value):
+    if value==90:
+        return fig_indicator_1_90
+    if value==180:
+        return fig_indicator_1_180
+    if value==365:
+        return fig_indicator_1_365
+    
+@app.callback(
+    Output("indicator_2", "figure"),
+    [Input("radios", "value")]
+)
+def indicator2(value):
+    if value==90:
+        return fig_indicator_2_90
+    if value==180:
+        return fig_indicator_2_180
+    if value==365:
+        return fig_indicator_2_365
+
+@app.callback(
+    Output("indicator_3", "figure"),
+    [Input("radios", "value")]
+)
+def indicator3(value):
+    if value==90:
+        return fig_indicator_3_90
+    if value==180:
+        return fig_indicator_3_180
+    if value==365:
+        return fig_indicator_3_365
+
+@app.callback(
+    Output("indicator_4", "figure"),
+    [Input("radios", "value")]
+)
+def indicator4(value):
+    if value==90:
+        return fig_indicator_4_90
+    if value==180:
+        return fig_indicator_4_180
+    if value==365:
+        return fig_indicator_4_365
+
+@app.callback(
+    Output("indicator_5", "figure"),
+    [Input("radios", "value")]
+)
+def indicator5(value):
+    if value==90:
+        return fig_indicator_5_90
+    if value==180:
+        return fig_indicator_5_180
+    if value==365:
+        return fig_indicator_5_365
+
+@app.callback(
+    Output("indicator_6", "figure"),
+    [Input("radios", "value")]
+)
+def indicator6(value):
+    if value==90:
+        return fig_indicator_6_90
+    if value==180:
+        return fig_indicator_6_180
+    if value==365:
+        return fig_indicator_6_365
+
+@app.callback(
+    Output("map", "figure"),
+    [Input("radios", "value")]
+)
+def map(value):
+    if value==90:
+        return fig_map_90
+    if value==180:
+        return fig_map_180
+    if value==365:
+        return fig_map_365
+
+@app.callback(
+    Output("bars_3", "figure"),
+    [Input("radios", "value")]
+)
+def bars3(value):
+    if value==90:
+        return fig_bars3_90
+    if value==180:
+        return fig_bars3_180
+    if value==365:
+        return fig_bars3_365
+
+@app.callback(
+    Output("bars_4", "figure"),
+    [Input("radios", "value")]
+)
+def bars4(value):
+    if value==90:
+        return fig_bars4_90
+    if value==180:
+        return fig_bars4_180
+    if value==365:
+        return fig_bars4_365
+
+@app.callback(
+    Output("tabla_pestana_2", "figure"),
+    [Input("radios", "value")]
+)
+def tabla_pestana_2(value):
+    if value==90:
+        return fig_tabla_pestana2_90
+    if value==180:
+        return fig_tabla_pestana2_180
+    if value==365:
+        return fig_tabla_pestana2_365
+
 
 #------------------------------------------------------------------------------
 # Corremos la aplicación

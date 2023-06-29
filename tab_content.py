@@ -1,32 +1,81 @@
 from dash import dcc
 import dash_bootstrap_components as dbc
 from dash import html
+
+# Figuras Pestaña 1
 from make_figures import nuevo_indicador1
 from make_figures import nuevo_indicador2
 from make_figures import nuevo_indicador3
 from make_figures import nuevo_indicador4
 from make_figures import nuevo_indicador5
 from make_figures import nuevo_indicador6
+from make_figures import fig_treemap
+from make_figures import fig_treemap_90
+from make_figures import fig_treemap_180
+from make_figures import fig_treemap_365
+from make_figures import fig_bars1
+from make_figures import fig_bars2
+from make_figures import fig_bars1_90
+from make_figures import fig_bars2_90
+from make_figures import fig_bars1_180
+from make_figures import fig_bars2_180
+from make_figures import fig_bars1_365
+from make_figures import fig_bars2_365
+from make_figures import fig_table
+from make_figures import fig_table_90
+from make_figures import fig_table_180
+from make_figures import fig_table_365
+from make_figures import fig_timeseries
+from make_figures import fig_timeseries_90
+from make_figures import fig_timeseries_180
+from make_figures import fig_timeseries_365
+
+# Figuras Pestaña 2
 from make_figures import fig_indicator_1
 from make_figures import fig_indicator_2
 from make_figures import fig_indicator_3
 from make_figures import fig_indicator_4
 from make_figures import fig_indicator_5
 from make_figures import fig_indicator_6
-from make_figures import fig_treemap
-from make_figures import fig_timeseries
-from make_figures import fig_bars1
-from make_figures import fig_bars2
-from make_figures import fig_table
-from make_figures import search_term1
-from make_figures import search_term2
-from make_figures import search_term3
-from make_figures import search_term4
-from make_figures import search_term5
+from make_figures import fig_indicator_1_90
+from make_figures import fig_indicator_2_90
+from make_figures import fig_indicator_3_90
+from make_figures import fig_indicator_4_90
+from make_figures import fig_indicator_5_90
+from make_figures import fig_indicator_6_90
+from make_figures import fig_indicator_1_180
+from make_figures import fig_indicator_2_180
+from make_figures import fig_indicator_3_180
+from make_figures import fig_indicator_4_180
+from make_figures import fig_indicator_5_180
+from make_figures import fig_indicator_6_180
+from make_figures import fig_indicator_1_365
+from make_figures import fig_indicator_2_365
+from make_figures import fig_indicator_3_365
+from make_figures import fig_indicator_4_365
+from make_figures import fig_indicator_5_365
+from make_figures import fig_indicator_6_365
+from make_figures import search_term1_365
+from make_figures import search_term2_365
+from make_figures import search_term3_365
+from make_figures import search_term4_365
+from make_figures import search_term5_365
 from make_figures import fig_map
+from make_figures import fig_map_90
+from make_figures import fig_map_180
+from make_figures import fig_map_365
 from make_figures import fig_bars3
 from make_figures import fig_bars4
+from make_figures import fig_bars3_90
+from make_figures import fig_bars4_90
+from make_figures import fig_bars3_180   
+from make_figures import fig_bars4_180
+from make_figures import fig_bars3_365
+from make_figures import fig_bars4_365
 from make_figures import fig_tabla_pestana2
+from make_figures import fig_tabla_pestana2_90
+from make_figures import fig_tabla_pestana2_180
+from make_figures import fig_tabla_pestana2_365
 
 sales_tab = html.Div(
             [
@@ -171,7 +220,8 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sessions by Campaign - Channel Grouping']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_treemap,
+                                        dcc.Graph(figure={},
+                                                  id = 'treemap',
                                                   style={
                                                     'width': '100%',
                                                     'height': '500px'
@@ -192,7 +242,8 @@ sales_tab = html.Div(
                                 html.Div(
                                     [
                                         dcc.Graph(
-                                            figure=fig_table,
+                                            figure={},
+                                            id = "table",
                                             style = {
                                                 'width': '100%',
                                                 'height': '225px'
@@ -227,7 +278,8 @@ sales_tab = html.Div(
                                         dbc.Row([
                                             dbc.Col([
                                                 # Gráfica con la serie de tiempo
-                                                dcc.Graph(figure=fig_timeseries,
+                                                dcc.Graph(figure={},
+                                                          id = 'timeseries',
                                                           style={
                                                             'width': '100%',
                                                             'height': '500px'
@@ -253,7 +305,8 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sessions by Campaign Source']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_bars1,
+                                        dcc.Graph(figure={},
+                                                  id = 'bars1',
                                                   style={
                                                     'width': '100%',
                                                     'height': '450px'
@@ -270,7 +323,8 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sessions by Campaign']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_bars2,
+                                        dcc.Graph(figure={},
+                                                  id = 'bars2',
                                                   style={
                                                     'width': '100%',
                                                     'height': '450px'
@@ -308,7 +362,8 @@ engagement_tab = html.Div(
                                         ['Organic Sessions']
                                     ),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_1,
+                                        dcc.Graph(figure={},
+                                                  id = 'indicator_1',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px',
@@ -324,7 +379,8 @@ engagement_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Organic order confirmations']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_2,
+                                        dcc.Graph(figure={},
+                                                  id = 'indicator_2',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -340,7 +396,8 @@ engagement_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Organic Conversion Rate']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_3,
+                                        dcc.Graph(figure={},
+                                                  id = 'indicator_3',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -364,7 +421,8 @@ engagement_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Paid Sessions']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_4,
+                                        dcc.Graph(figure={},
+                                                  id = 'indicator_4',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -380,7 +438,8 @@ engagement_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Paid order confirmations']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_5,
+                                        dcc.Graph(figure={},
+                                                  id = 'indicator_5',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -396,7 +455,8 @@ engagement_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Paid Conversion Rate']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_indicator_6,
+                                        dcc.Graph(figure={},
+                                                  id = 'indicator_6',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -412,7 +472,6 @@ engagement_tab = html.Div(
 
                 # Serie de Tiempo
                 # Empezamos con una serie de tiempo
-                
                 dbc.Row(
                     [
                         # Título de la sección
@@ -452,7 +511,7 @@ engagement_tab = html.Div(
 
                                         dcc.Graph(
                                             id = 'series_de_tiempo',
-                                            figure = search_term1,
+                                            figure = search_term1_365,
                                             style={
                                                 'width': '100%',
                                                 'height': '500px'
@@ -467,7 +526,6 @@ engagement_tab = html.Div(
 
                 # GRÁFICAS DE BARRAS
                 # Sigue una fila y dos columnas con gráficas de barras
-
                 dbc.Row(
                     [
                         # Primera gráfica de barras
@@ -476,7 +534,8 @@ engagement_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sessions by Region (Top 5)']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_bars3,
+                                        dcc.Graph(figure={},
+                                                  id = 'bars_3',
                                                   style={
                                                     'width': '100%',
                                                     'height': '450px'
@@ -487,13 +546,14 @@ engagement_tab = html.Div(
                             ), sm=1, md=6, lg=6, xl=6, xxl=6
                         ),
                         
-                        # Segunda gráfica de barras
+                        # Mapa
                         dbc.Col(
                             html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Sessions by Region (Map)']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=fig_map,
+                                        dcc.Graph(figure={},
+                                                  id = 'map',
                                                   style={
                                                     'width': '100%',
                                                     'height': '450px'
@@ -524,7 +584,8 @@ engagement_tab = html.Div(
                                         dbc.Row([
                                             dbc.Col([
                                                 # Gráfica con la serie de tiempo
-                                                dcc.Graph(figure=fig_bars4,
+                                                dcc.Graph(figure={},
+                                                        id = 'bars_4',
                                                           style={
                                                             'width': '100%',
                                                             'height': '500px'
@@ -553,7 +614,8 @@ engagement_tab = html.Div(
                                 html.Div(
                                     [
                                         dcc.Graph(
-                                            figure=fig_tabla_pestana2,
+                                            figure={},
+                                                  id = 'tabla_pestana_2',
                                             style = {
                                                 'width': '100%',
                                                 'height': '200px'

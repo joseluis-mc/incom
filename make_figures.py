@@ -467,19 +467,55 @@ def make_table2(data):
 #### Carga datos
 # Pestaña 1
 indicadores_sheets = pd.read_pickle('incom/datasets/indicadores_sheets.pkl')
+
 organic_sessions_ts = pd.read_pickle('incom/datasets/organic_sessions_ts.pkl')
 paid_sessions_ts = pd.read_pickle('incom/datasets/paid_sessions_ts.pkl')
 campaign_detail = pd.read_pickle('incom/datasets/campaign_detail.pkl')
 paid_groupings = pd.read_pickle('incom/datasets/paid_groupings.pkl')
 
+organic_sessions_ts_90 = pd.read_pickle('incom/datasets/organic_sessions_ts_90.pkl')
+paid_sessions_ts_90 = pd.read_pickle('incom/datasets/paid_sessions_ts_90.pkl')
+campaign_detail_90 = pd.read_pickle('incom/datasets/campaign_detail_90.pkl')
+paid_groupings_90 = pd.read_pickle('incom/datasets/paid_groupings_90.pkl')
+
+organic_sessions_ts_180 = pd.read_pickle('incom/datasets/organic_sessions_ts_180.pkl')
+paid_sessions_ts_180 = pd.read_pickle('incom/datasets/paid_sessions_ts_180.pkl')
+campaign_detail_180 = pd.read_pickle('incom/datasets/campaign_detail_180.pkl')
+paid_groupings_180 = pd.read_pickle('incom/datasets/paid_groupings_180.pkl')
+
+organic_sessions_ts_365 = pd.read_pickle('incom/datasets/organic_sessions_ts_365.pkl')
+paid_sessions_ts_365 = pd.read_pickle('incom/datasets/paid_sessions_ts_365.pkl')
+campaign_detail_365 = pd.read_pickle('incom/datasets/campaign_detail_365.pkl')
+paid_groupings_365 = pd.read_pickle('incom/datasets/paid_groupings_365.pkl')
+
 #Pestaña 2
+search_trends = pd.read_pickle('incom/datasets/search_trends.pkl')
+
 paid_indicators = pd.read_pickle('incom/datasets/paid_indicators.pkl')
 organic_indicators = pd.read_pickle('incom/datasets/organic_indicators.pkl')
-search_trends = pd.read_pickle('incom/datasets/search_trends.pkl')
 paid_map = pd.read_pickle('incom/datasets/paid_map.pkl')
 paid_hours = pd.read_pickle('incom/datasets/paid_hours.pkl')
 summary_table = pd.read_pickle('incom/datasets/summary_table.pkl')
 
+search_trends_365 = pd.read_pickle('incom/datasets/search_trends_365.pkl')
+
+paid_indicators_90 = pd.read_pickle('incom/datasets/paid_indicators_90.pkl')
+organic_indicators_90 = pd.read_pickle('incom/datasets/organic_indicators_90.pkl')
+paid_map_90 = pd.read_pickle('incom/datasets/paid_map_90.pkl')
+paid_hours_90 = pd.read_pickle('incom/datasets/paid_hours_90.pkl')
+summary_table_90 = pd.read_pickle('incom/datasets/summary_table_90.pkl')
+
+paid_indicators_180 = pd.read_pickle('incom/datasets/paid_indicators_180.pkl')
+organic_indicators_180 = pd.read_pickle('incom/datasets/organic_indicators_180.pkl')
+paid_map_180 = pd.read_pickle('incom/datasets/paid_map_180.pkl')
+paid_hours_180 = pd.read_pickle('incom/datasets/paid_hours_180.pkl')
+summary_table_180 = pd.read_pickle('incom/datasets/summary_table_180.pkl')
+
+paid_indicators_365 = pd.read_pickle('incom/datasets/paid_indicators_365.pkl')
+organic_indicators_365 = pd.read_pickle('incom/datasets/organic_indicators_365.pkl')
+paid_map_365 = pd.read_pickle('incom/datasets/paid_map_365.pkl')
+paid_hours_365 = pd.read_pickle('incom/datasets/paid_hours_365.pkl')
+summary_table_365 = pd.read_pickle('incom/datasets/summary_table_365.pkl')
 
 #### Plots Pestaña 1
 # Indicadores
@@ -492,19 +528,31 @@ nuevo_indicador6 = make_indicator_percentage2(indicadores_sheets, indicadores_sh
 
 # Treemap
 fig_treemap = make_tree_paid_sources(paid_groupings, 'Campaigns by Channel Grouping')
+fig_treemap_90 = make_tree_paid_sources(paid_groupings_90, 'Campaigns by Channel Grouping')
+fig_treemap_180 = make_tree_paid_sources(paid_groupings_180, 'Campaigns by Channel Grouping')
+fig_treemap_365 = make_tree_paid_sources(paid_groupings_365, 'Campaigns by Channel Grouping')
 
 # Bars
 fig_bars1 = make_bars(campaign_detail)
 fig_bars2 = make_bars2(campaign_detail)
+fig_bars1_90 = make_bars(campaign_detail_90)
+fig_bars2_90 = make_bars2(campaign_detail_90)
+fig_bars1_180 = make_bars(campaign_detail_180)
+fig_bars2_180 = make_bars2(campaign_detail_180)
+fig_bars1_365 = make_bars(campaign_detail_365)
+fig_bars2_365 = make_bars2(campaign_detail_365)
 
 # Table
 fig_table = make_table(campaign_detail[['campaign','source','medium','sessions']])
+fig_table_90 = make_table(campaign_detail_90[['campaign','source','medium','sessions']])
+fig_table_180 = make_table(campaign_detail_180[['campaign','source','medium','sessions']])
+fig_table_365 = make_table(campaign_detail_365[['campaign','source','medium','sessions']])
 
 # TimeSeries
 fig_timeseries = make_double_timeseries(organic_sessions_ts, paid_sessions_ts, 'sessions', 'Weekly sessions')
-
-
-
+fig_timeseries_90 = make_double_timeseries(organic_sessions_ts_90, paid_sessions_ts_90, 'sessions', 'Weekly sessions')
+fig_timeseries_180 = make_double_timeseries(organic_sessions_ts_180, paid_sessions_ts_180, 'sessions', 'Weekly sessions')
+fig_timeseries_365 = make_double_timeseries(organic_sessions_ts_365, paid_sessions_ts_365, 'sessions', 'Weekly sessions')
 
 #### Plots Pestaña 2
 # Indicadores
@@ -533,6 +581,81 @@ fig_indicator_6 = make_indicator_percentage(paid_indicators,
                                  'conversionRate',
                                  'Conversion rate %')
 
+fig_indicator_1_90 = make_indicator(organic_indicators_90,
+                                 organic_indicators_90,
+                                 'sessions',
+                                 'Organic sessions')
+fig_indicator_2_90 = make_indicator(organic_indicators_90,
+                                 organic_indicators_90,
+                                 'transactions',
+                                 'Organic transactions')
+fig_indicator_3_90 = make_indicator_percentage(organic_indicators_90,
+                                 organic_indicators_90,
+                                 'conversionRate',
+                                 'Conversion rate %')
+fig_indicator_4_90 = make_indicator(paid_indicators_90,
+                                 paid_indicators_90,
+                                 'sessions',
+                                 'Organic sessions')
+fig_indicator_5_90 = make_indicator(paid_indicators_90,
+                                 paid_indicators_90,
+                                 'transactions',
+                                 'Organic transactions')
+fig_indicator_6_90 = make_indicator_percentage(paid_indicators_90,
+                                 paid_indicators_90,
+                                 'conversionRate',
+                                 'Conversion rate %')
+
+fig_indicator_1_180 = make_indicator(organic_indicators_180,
+                                 organic_indicators_180,
+                                 'sessions',
+                                 'Organic sessions')
+fig_indicator_2_180 = make_indicator(organic_indicators_180,
+                                 organic_indicators_180,
+                                 'transactions',
+                                 'Organic transactions')
+fig_indicator_3_180 = make_indicator_percentage(organic_indicators_180,
+                                 organic_indicators_180,
+                                 'conversionRate',
+                                 'Conversion rate %')
+fig_indicator_4_180 = make_indicator(paid_indicators_180,
+                                 paid_indicators_180,
+                                 'sessions',
+                                 'Organic sessions')
+fig_indicator_5_180 = make_indicator(paid_indicators_180,
+                                 paid_indicators_180,
+                                 'transactions',
+                                 'Organic transactions')
+fig_indicator_6_180 = make_indicator_percentage(paid_indicators_180,
+                                 paid_indicators_180,
+                                 'conversionRate',
+                                 'Conversion rate %')
+
+fig_indicator_1_365 = make_indicator(organic_indicators_365,
+                                 organic_indicators_365,
+                                 'sessions',
+                                 'Organic sessions')
+fig_indicator_2_365 = make_indicator(organic_indicators_365,
+                                 organic_indicators_365,
+                                 'transactions',
+                                 'Organic transactions')
+fig_indicator_3_365 = make_indicator_percentage(organic_indicators_365,
+                                 organic_indicators_365,
+                                 'conversionRate',
+                                 'Conversion rate %')
+fig_indicator_4_365 = make_indicator(paid_indicators_365,
+                                 paid_indicators_365,
+                                 'sessions',
+                                 'Organic sessions')
+fig_indicator_5_365 = make_indicator(paid_indicators_365,
+                                 paid_indicators_180,
+                                 'transactions',
+                                 'Organic transactions')
+fig_indicator_6_365 = make_indicator_percentage(paid_indicators_365,
+                                 paid_indicators_365,
+                                 'conversionRate',
+                                 'Conversion rate %')
+
 # TimeSeries
 search_term1 =  make_timeseries(search_trends, 'TOEFL')
 search_term2 =  make_timeseries(search_trends, 'TOEFL IBT MEXICO')
@@ -541,14 +664,32 @@ search_term4 =  make_timeseries(search_trends, 'CERTIFICACION DE INGLES')
 search_term5 =  make_timeseries(search_trends, 'TOEFL ONLINE')
 #fig_timeseries_pestana2 = make_timeseries(search_trends, 'Weekly search trend for: TOEFL IBT from México')
 
+search_term1_365 =  make_timeseries(search_trends_365, 'TOEFL')
+search_term2_365 =  make_timeseries(search_trends_365, 'TOEFL IBT MEXICO')
+search_term3_365 =  make_timeseries(search_trends_365, 'MEXICO EXAMEN INGLES')
+search_term4_365 =  make_timeseries(search_trends_365, 'CERTIFICACION DE INGLES')
+search_term5_365 =  make_timeseries(search_trends_365, 'TOEFL ONLINE')
+
 # Map
 fig_map = make_choropleth(paid_map)
+fig_map_90 = make_choropleth(paid_map_90)
+fig_map_180 = make_choropleth(paid_map_180)
+fig_map_365 = make_choropleth(paid_map_365)
 
 # Bars3
 fig_bars3 = make_bars3(paid_map)
+fig_bars3_90 = make_bars3(paid_map_90)
+fig_bars3_180 = make_bars3(paid_map_180)
+fig_bars3_365 = make_bars3(paid_map_365)
 
 # Bars4
 fig_bars4 = make_bars4(paid_hours)
+fig_bars4_90 = make_bars4(paid_hours_90)
+fig_bars4_180 = make_bars4(paid_hours_180)
+fig_bars4_365 = make_bars4(paid_hours_365)
 
 # Bars4
 fig_tabla_pestana2 = make_table2(summary_table)
+fig_tabla_pestana2_90 = make_table2(summary_table_90)
+fig_tabla_pestana2_180 = make_table2(summary_table_180)
+fig_tabla_pestana2_365 = make_table2(summary_table_365)
