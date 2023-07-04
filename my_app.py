@@ -9,12 +9,24 @@ import dash_bootstrap_components as dbc # Componentes de Bootstrap
 # Contenido de otros archivos
 from tab_content import sales_tab, engagement_tab # Contenido de las pestañas
 # Figuras Pestaña 1
-from make_figures import nuevo_indicador1
-from make_figures import nuevo_indicador2
-from make_figures import nuevo_indicador3
-from make_figures import nuevo_indicador4
-from make_figures import nuevo_indicador5
-from make_figures import nuevo_indicador6
+from make_figures import nuevo_indicador1_90
+from make_figures import nuevo_indicador1_180
+from make_figures import nuevo_indicador1_365
+from make_figures import nuevo_indicador2_90
+from make_figures import nuevo_indicador2_180
+from make_figures import nuevo_indicador2_365
+from make_figures import nuevo_indicador3_90
+from make_figures import nuevo_indicador3_180
+from make_figures import nuevo_indicador3_365
+from make_figures import nuevo_indicador4_90
+from make_figures import nuevo_indicador4_180
+from make_figures import nuevo_indicador4_365
+from make_figures import nuevo_indicador5_90
+from make_figures import nuevo_indicador5_180
+from make_figures import nuevo_indicador5_365
+from make_figures import nuevo_indicador6_90
+from make_figures import nuevo_indicador6_180
+from make_figures import nuevo_indicador6_365
 from make_figures import fig_treemap
 from make_figures import fig_treemap_90
 from make_figures import fig_treemap_180
@@ -234,6 +246,78 @@ def time_series(value):
         return search_term5_365
     
 # Actualizar figuras
+@app.callback(
+    Output("sheets1", "figure"),
+    [Input("radios", "value")]
+)
+def sheets_1(value):
+    if value==90:
+        return nuevo_indicador1_90
+    if value==180:
+        return nuevo_indicador1_180
+    if value==365:
+        return nuevo_indicador1_365
+    
+@app.callback(
+    Output("sheets2", "figure"),
+    [Input("radios", "value")]
+)
+def sheets_2(value):
+    if value==90:
+        return nuevo_indicador2_90
+    if value==180:
+        return nuevo_indicador2_180
+    if value==365:
+        return nuevo_indicador2_365
+
+@app.callback(
+    Output("sheets3", "figure"),
+    [Input("radios", "value")]
+)
+def sheets_3(value):
+    if value==90:
+        return nuevo_indicador3_90
+    if value==180:
+        return nuevo_indicador3_180
+    if value==365:
+        return nuevo_indicador3_365
+
+@app.callback(
+    Output("sheets4", "figure"),
+    [Input("radios", "value")]
+)
+def sheets_4(value):
+    if value==90:
+        return nuevo_indicador4_90
+    if value==180:
+        return nuevo_indicador4_180
+    if value==365:
+        return nuevo_indicador4_365
+
+@app.callback(
+    Output("sheets5", "figure"),
+    [Input("radios", "value")]
+)
+def sheets_5(value):
+    if value==90:
+        return nuevo_indicador5_90
+    if value==180:
+        return nuevo_indicador5_180
+    if value==365:
+        return nuevo_indicador5_365
+
+@app.callback(
+    Output("sheets6", "figure"),
+    [Input("radios", "value")]
+)
+def sheets_6(value):
+    if value==90:
+        return nuevo_indicador6_90
+    if value==180:
+        return nuevo_indicador6_180
+    if value==365:
+        return nuevo_indicador6_365
+
 @app.callback(
     Output("treemap", "figure"),
     [Input("radios", "value")]

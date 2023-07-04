@@ -34,15 +34,33 @@ body {
     padding-left: 0;
   }
   
-  .radio-group .btn-group > .form-check:not(:last-child) > .btn {
+.radio-group .btn-group > .form-check:not(:last-child) > .btn {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    
-  }
-  
-  .radio-group .btn-group > .form-check:not(:first-child) > .btn {
+    border-color: #037E83;
+    color: #037E83;
+}
+
+.radio-group .btn-group > .form-check:not(:first-child) > .btn {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     margin-left: -1px;
-    
-  }
+    border-color: #037E83;
+    color: #037E83;
+}
+
+.radio-group .btn-group > .form-check:not(:last-child) > .btn:active {
+    color: white !important;
+    background-color: #037E83 !important; /* Replace with your desired background color */
+}
+
+.radio-group .btn-group > .form-check:not(:first-child) > .btn:active {
+    color: white !important;
+    background-color: #037E83 !important; /* Replace with your desired background color */
+}
+
+.radio-group .btn-group > .form-check > .btn.active {
+    color: white;
+    background-color: #037E83;
+}
+

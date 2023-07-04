@@ -2,80 +2,7 @@ from dash import dcc
 import dash_bootstrap_components as dbc
 from dash import html
 
-# Figuras Pestaña 1
-from make_figures import nuevo_indicador1
-from make_figures import nuevo_indicador2
-from make_figures import nuevo_indicador3
-from make_figures import nuevo_indicador4
-from make_figures import nuevo_indicador5
-from make_figures import nuevo_indicador6
-from make_figures import fig_treemap
-from make_figures import fig_treemap_90
-from make_figures import fig_treemap_180
-from make_figures import fig_treemap_365
-from make_figures import fig_bars1
-from make_figures import fig_bars2
-from make_figures import fig_bars1_90
-from make_figures import fig_bars2_90
-from make_figures import fig_bars1_180
-from make_figures import fig_bars2_180
-from make_figures import fig_bars1_365
-from make_figures import fig_bars2_365
-from make_figures import fig_table
-from make_figures import fig_table_90
-from make_figures import fig_table_180
-from make_figures import fig_table_365
-from make_figures import fig_timeseries
-from make_figures import fig_timeseries_90
-from make_figures import fig_timeseries_180
-from make_figures import fig_timeseries_365
-
-# Figuras Pestaña 2
-from make_figures import fig_indicator_1
-from make_figures import fig_indicator_2
-from make_figures import fig_indicator_3
-from make_figures import fig_indicator_4
-from make_figures import fig_indicator_5
-from make_figures import fig_indicator_6
-from make_figures import fig_indicator_1_90
-from make_figures import fig_indicator_2_90
-from make_figures import fig_indicator_3_90
-from make_figures import fig_indicator_4_90
-from make_figures import fig_indicator_5_90
-from make_figures import fig_indicator_6_90
-from make_figures import fig_indicator_1_180
-from make_figures import fig_indicator_2_180
-from make_figures import fig_indicator_3_180
-from make_figures import fig_indicator_4_180
-from make_figures import fig_indicator_5_180
-from make_figures import fig_indicator_6_180
-from make_figures import fig_indicator_1_365
-from make_figures import fig_indicator_2_365
-from make_figures import fig_indicator_3_365
-from make_figures import fig_indicator_4_365
-from make_figures import fig_indicator_5_365
-from make_figures import fig_indicator_6_365
 from make_figures import search_term1_365
-from make_figures import search_term2_365
-from make_figures import search_term3_365
-from make_figures import search_term4_365
-from make_figures import search_term5_365
-from make_figures import fig_map
-from make_figures import fig_map_90
-from make_figures import fig_map_180
-from make_figures import fig_map_365
-from make_figures import fig_bars3
-from make_figures import fig_bars4
-from make_figures import fig_bars3_90
-from make_figures import fig_bars4_90
-from make_figures import fig_bars3_180   
-from make_figures import fig_bars4_180
-from make_figures import fig_bars3_365
-from make_figures import fig_bars4_365
-from make_figures import fig_tabla_pestana2
-from make_figures import fig_tabla_pestana2_90
-from make_figures import fig_tabla_pestana2_180
-from make_figures import fig_tabla_pestana2_365
 
 sales_tab = html.Div(
             [
@@ -98,7 +25,8 @@ sales_tab = html.Div(
                                         ['Ereg Reached']
                                     ),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=nuevo_indicador1,
+                                        dcc.Graph(figure={},
+                                                  id = 'sheets1',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px',
@@ -114,7 +42,8 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Acc. Creation Intent']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=nuevo_indicador2,
+                                        dcc.Graph(figure={},
+                                                  id = 'sheets2',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -130,7 +59,8 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Acc. Creation Success']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=nuevo_indicador3,
+                                        dcc.Graph(figure={},
+                                                  id = 'sheets3',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -154,7 +84,8 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Register for a Test Intent']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=nuevo_indicador4,
+                                        dcc.Graph(figure={},
+                                                  id = 'sheets4',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -170,7 +101,8 @@ sales_tab = html.Div(
                                 dbc.Card([
                                     dbc.CardHeader(['Order Confirmations (Paid)']),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=nuevo_indicador5,
+                                        dcc.Graph(figure={},
+                                                  id = 'sheets5',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'
@@ -191,7 +123,8 @@ sales_tab = html.Div(
                                         placement = 'auto-start'
                                     ),
                                     dbc.CardBody([
-                                        dcc.Graph(figure=nuevo_indicador6,
+                                        dcc.Graph(figure={},
+                                                  id = 'sheets6',
                                                   style={
                                                     'width': '100%',
                                                     'height': '100px'

@@ -466,7 +466,9 @@ def make_table2(data):
 
 #### Carga datos
 # Pestaña 1
-indicadores_sheets = pd.read_pickle('incom/datasets/indicadores_sheets.pkl')
+indicadores_sheets_90 = pd.read_pickle('incom/datasets/indicadores_sheets_90.pkl')
+indicadores_sheets_180 = pd.read_pickle('incom/datasets/indicadores_sheets_180.pkl')
+indicadores_sheets_365 = pd.read_pickle('incom/datasets/indicadores_sheets_365.pkl')
 
 organic_sessions_ts = pd.read_pickle('incom/datasets/organic_sessions_ts.pkl')
 paid_sessions_ts = pd.read_pickle('incom/datasets/paid_sessions_ts.pkl')
@@ -519,12 +521,26 @@ summary_table_365 = pd.read_pickle('incom/datasets/summary_table_365.pkl')
 
 #### Plots Pestaña 1
 # Indicadores
-nuevo_indicador1 = make_indicator(indicadores_sheets, indicadores_sheets, 'eReg Reached', 'eReg Reached')
-nuevo_indicador2 = make_indicator(indicadores_sheets, indicadores_sheets, 'Account Creation Intent', 'Account Creation Intent')
-nuevo_indicador3 = make_indicator(indicadores_sheets, indicadores_sheets, 'Account Creation Success', 'Account Creation Success')
-nuevo_indicador4 = make_indicator(indicadores_sheets, indicadores_sheets, 'Register For a Test Intent', 'Register For a Test Intent')
-nuevo_indicador5 = make_indicator(indicadores_sheets, indicadores_sheets, 'Order Confirmation', 'Order Confirmation')
-nuevo_indicador6 = make_indicator_percentage2(indicadores_sheets, indicadores_sheets, 'ROI', 'ROI')
+nuevo_indicador1_90 = make_indicator(indicadores_sheets_90, indicadores_sheets_90, 'eREG Reached', 'eReg Reached')
+nuevo_indicador2_90 = make_indicator(indicadores_sheets_90, indicadores_sheets_90, 'Account Creation Intent', 'Account Creation Intent')
+nuevo_indicador3_90 = make_indicator(indicadores_sheets_90, indicadores_sheets_90, 'Account Creation Success', 'Account Creation Success')
+nuevo_indicador4_90 = make_indicator(indicadores_sheets_90, indicadores_sheets_90, 'Register For a Test Intent', 'Register For a Test Intent')
+nuevo_indicador5_90 = make_indicator(indicadores_sheets_90, indicadores_sheets_90, 'Order Confirmation', 'Order Confirmation')
+nuevo_indicador6_90 = make_indicator_percentage2(indicadores_sheets_90, indicadores_sheets_90, 'ROI', 'ROI')
+
+nuevo_indicador1_180 = make_indicator(indicadores_sheets_180, indicadores_sheets_180, 'eREG Reached', 'eReg Reached')
+nuevo_indicador2_180 = make_indicator(indicadores_sheets_180, indicadores_sheets_180, 'Account Creation Intent', 'Account Creation Intent')
+nuevo_indicador3_180 = make_indicator(indicadores_sheets_180, indicadores_sheets_180, 'Account Creation Success', 'Account Creation Success')
+nuevo_indicador4_180 = make_indicator(indicadores_sheets_180, indicadores_sheets_180, 'Register For a Test Intent', 'Register For a Test Intent')
+nuevo_indicador5_180 = make_indicator(indicadores_sheets_180, indicadores_sheets_180, 'Order Confirmation', 'Order Confirmation')
+nuevo_indicador6_180 = make_indicator_percentage2(indicadores_sheets_180, indicadores_sheets_180, 'ROI', 'ROI')
+
+nuevo_indicador1_365 = make_indicator(indicadores_sheets_365, indicadores_sheets_365, 'eREG Reached', 'eReg Reached')
+nuevo_indicador2_365 = make_indicator(indicadores_sheets_365, indicadores_sheets_365, 'Account Creation Intent', 'Account Creation Intent')
+nuevo_indicador3_365 = make_indicator(indicadores_sheets_365, indicadores_sheets_365, 'Account Creation Success', 'Account Creation Success')
+nuevo_indicador4_365 = make_indicator(indicadores_sheets_365, indicadores_sheets_365, 'Register For a Test Intent', 'Register For a Test Intent')
+nuevo_indicador5_365 = make_indicator(indicadores_sheets_365, indicadores_sheets_365, 'Order Confirmation', 'Order Confirmation')
+nuevo_indicador6_365 = make_indicator_percentage2(indicadores_sheets_365, indicadores_sheets_365, 'ROI', 'ROI')
 
 # Treemap
 fig_treemap = make_tree_paid_sources(paid_groupings, 'Campaigns by Channel Grouping')
